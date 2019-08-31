@@ -248,19 +248,27 @@ configuration which better reflects the multi-organization structure of
 PaperNet. For now, this network is sufficient to show you how to develop an
 application and smart contract.
 
+이 튜토리얼은 현재 기본 네트워크를 사용합니다. PaperNet의 다중 구성 구조를보다 잘 반영하는 구성으로 곧 업데이트 될 예정입니다. 현재이 네트워크는 애플리케이션 및 스마트 계약 개발 방법을 보여주기에 충분합니다.
+
 ![commercialpaper.network](./commercial_paper.diagram.3.png) *The Hyperledger
 Fabric basic network comprises a peer and its ledger database, an orderer and a
 certificate authority (CA). Each of these components runs as a docker
 container.*
+
+Hyperledger Fabric 기본 네트워크는 피어 및 원장 데이터베이스, 주문자 및 인증 기관 (CA)으로 구성됩니다. 이러한 각 구성 요소는 도커 컨테이너로 실행됩니다.
 
 The peer, its [ledger](../ledger/ledger.html#world-state-database-options), the
 orderer and the CA each run in the their own docker container. In production
 environments, organizations typically use existing CAs that are shared with
 other systems; they're not dedicated to the Fabric network.
 
+피어, 원장, 주문자 및 CA는 각각 자체 도커 컨테이너에서 실행됩니다. 프로덕션 환경에서 조직은 일반적으로 다른 시스템과 공유되는 기존 CA를 사용합니다. 그들은 Fabric 네트워크 전용이 아닙니다.
+
 You can manage the basic network using the commands and configuration included
 in the `fabric-samples\basic-network` directory. Let's start the network on your
 local machine with the `start.sh` shell script:
+
+fabric-samples \ basic-network 디렉토리에 포함 된 명령 및 구성을 사용하여 기본 네트워크를 관리 할 수 있습니다. start.sh 셸 스크립트를 사용하여 로컬 컴퓨터에서 네트워크를 시작해 보겠습니다.
 
 ```
 $ cd fabric-samples/basic-network
@@ -304,8 +312,13 @@ have the most up-to-date version of the software for these Hyperledger Fabric
 components. Feel free to explore the `basic-network` directory -- we'll use
 much of its contents during this tutorial.
 
+'docker-compose -f docker-compose.yml up -d ca.example.com ...'명령이 어떻게 DockerHub에서 4 개의 Hyperledger Fabric 컨테이너 이미지를 가져 와서 시작하는지 확인하십시오. 이 컨테이너에는 이러한 Hyperledger Fabric 구성 요소를위한 최신 버전의 소프트웨어가 있습니다. 기본 네트워크 디렉토리를 자유롭게 탐색하십시오.이 자습서에서는 많은 내용을 사용합니다.
+
 You can list the docker containers that are running the basic-network components
 using the `docker ps` command:
+
+docker ps 명령을 사용하여 기본 네트워크 구성 요소를 실행중인 도커 컨테이너를 나열 할 수 있습니다.
+
 
 ```
 $ docker ps
@@ -320,13 +333,23 @@ ada3d078989b        hyperledger/fabric-peer      "peer node start"        About 
 See if you can map these containers to the basic-network (you may need to
 horizontally scroll to locate the information):
 
+이러한 컨테이너를 기본 네트워크에 매핑 할 수 있는지 확인하십시오 (정보를 찾으려면 가로로 스크롤해야 할 수도 있음).
+
 * A peer `peer0.org1.example.com` is running in container `ada3d078989b`
 * An orderer `orderer.example.com` is running in container `1fa1fd107bfb`
 * A CouchDB database `couchdb` is running in container `53fe614274f7`
 * A CA `ca.example.com` is running in container `469201085a20`
 
+* 피어 peer0.org1.example.com이 컨테이너 ada3d078989b에서 실행 중입니다.
+* 주문자 orderer.example.com이 컨테이너 1fa1fd107bfb에서 실행 중입니다.
+* CouchDB 데이터베이스 couchdb가 컨테이너 53fe614274f7에서 실행 중
+* CA ca.example.com이 컨테이너 469201085a20에서 실행 중입니다.
+
 These containers all form a [docker network](https://docs.docker.com/network/)
 called `net_basic`. You can view the network with the `docker network` command:
+
+이 컨테이너는 모두 net_basic이라는 도커 네트워크를 형성합니다. docker network 명령을 사용하여 네트워크를 볼 수 있습니다:
+
 
 ```
 $ docker network inspect net_basic
@@ -360,9 +383,15 @@ $ docker network inspect net_basic
 See how the four containers use different IP addresses, while being part of a
 single docker network. (We've abbreviated the output for clarity.)
 
+단일 도커 네트워크의 일부인 4 개의 컨테이너가 다른 IP 주소를 사용하는 방법을 확인하십시오. (명확성을 위해 출력을 축약했습니다.)
+
 To recap: you've downloaded the Hyperledger Fabric samples repository from
 GitHub and you've got the basic network running on your local machine. Let's now
 start to play the role of MagnetoCorp, who wish to trade commercial paper.
+
+요약하자면, GitHub에서 Hyperledger Fabric 샘플 저장소를 다운로드했으며 로컬 컴퓨터에서 기본 네트워크를 실행하고 있습니다. 이제 상용 용지 거래를 원하는 MagnetoCorp의 역할을 시작하겠습니다.
+
+
 
 ## Working as MagnetoCorp
 
@@ -374,10 +403,14 @@ from a single window. This can be really helpful for administrators when
 installing smart contracts or for developers when invoking smart contracts, for
 example.
 
+PaperNet의 MagnetoCorp 구성 요소를 모니터링하기 위해 관리자는 logspout 도구를 사용하여 일련의 도커 컨테이너에서 집계 된 출력을 볼 수 있습니다. 다른 출력 스트림을 한 곳으로 수집하여 단일 창에서 발생하는 상황을 쉽게 확인할 수 있습니다. 예를 들어 스마트 계약을 설치할 때 관리자 나 스마트 계약을 호출 할 때 개발자에게 도움이 될 수 있습니다.
+
 Let's now monitor PaperNet as a MagnetoCorp administrator. Open a new window in
 the `fabric-samples` directory, and locate and run the `monitordocker.sh`
 script to start the `logspout` tool for the PaperNet docker containers
 associated with the docker network `net_basic`:
+
+이제 PaperNet을 MagnetoCorp 관리자로 모니터링하겠습니다. fabric-samples 디렉토리에서 새 창을 열고 monitordocker.sh 스크립트를 찾아 실행하여 docker 네트워크 net_basic과 연관된 PaperNet 도커 컨테이너에 대한 logspout 도구를 시작하십시오.
 
 ```
 (magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
@@ -392,6 +425,9 @@ b7f3586e5d0233de5a454df369b8eadab0613886fc9877529587345fc01a3582
 ```
 
 Note that you can pass a port number to the above command if the default port in `monitordocker.sh` is already in use.
+
+monitordocker.sh의 기본 포트가 이미 사용중인 경우 포트 번호를 위 명령에 전달할 수 있습니다.
+
 ```
 (magnetocorp admin)$ ./monitordocker.sh net_basic <port_number>
 ```
@@ -399,6 +435,8 @@ Note that you can pass a port number to the above command if the default port in
 This window will now show output from the docker containers, so let's start
 another terminal window which will allow the MagnetoCorp administrator to
 interact with the network.
+
+이 창에는 이제 도커 컨테이너의 출력이 표시되므로 MagnetoCorp 관리자가 네트워크와 상호 작용할 수있는 다른 터미널 창을 시작하겠습니다.
 
 ![commercialpaper.workmagneto](./commercial_paper.diagram.4.png) *A MagnetoCorp
 administrator interacts with the network via a docker container.*
@@ -408,8 +446,12 @@ Hyperledger Fabric `peer` commands. Conveniently, these are available pre-built
 in the `hyperledger/fabric-tools`
 [docker image](https://hub.docker.com/r/hyperledger/fabric-tools/).
 
+PaperNet과 상호 작용하려면 MagnetoCorp 관리자가 Hyperledger Fabric 피어 명령을 사용해야합니다. 편리하게, 이들은 'hyperledger/fabric-tools'  도커 이미지에 사전 구축되어 있습니다.
+
 Let's start a MagnetoCorp-specific docker container for the administrator using
 the `docker-compose` [command](https://docs.docker.com/compose/overview/):
+
+docker-compose 명령을 사용하여 관리자를위한 MagnetoCorp 특정 도커 컨테이너를 시작해 보겠습니다.
 
 ```
 (magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
@@ -426,6 +468,8 @@ Creating cliMagnetoCorp ... done
 
 Again, see how the `hyperledger/fabric-tools` docker image was retrieved from
 Docker Hub and added to the network:
+
+다시 한 번 'hyperledger/fabric-tools' docker 이미지가 Docker Hub에서 검색되어 네트워크에 추가 된 방법을 확인하십시오.
 
 ```
 (magnetocorp admin)$ docker ps
@@ -444,8 +488,14 @@ The MagnetoCorp administrator will use the command line in container
 `b7f3586e5d02`; this is capturing the output of all other docker containers for
 the `monitordocker.sh` command.
 
+MagnetoCorp 관리자는 컨테이너 562a88b25149의 명령 행을 사용하여 PaperNet과 상호 작용합니다. 또한 로그 아웃 컨테이너 b7f3586e5d02를 확인하십시오. 이것은 monitordocker.sh 명령에 대한 다른 모든 도커 컨테이너의 출력을 캡처합니다.
+
 Let's now use this command line to interact with PaperNet as the MagnetoCorp
 administrator.
+
+이제이 명령 행을 사용하여 MagnetoCorp 관리자로서 PaperNet과 상호 작용하십시오.
+
+
 
 ## Smart contract
 
@@ -454,9 +504,13 @@ smart contract. It is used by applications to submit transactions which
 correspondingly issue, buy and redeem commercial paper on the ledger. Our next
 task is to examine this smart contract.
 
+발행, 구매 및 사용은 PaperNet 스마트 계약의 핵심 기능입니다. 응용 프로그램에서 원장에 상업용 용지를 발행, 구매 및 교환하는 거래를 제출하는 데 사용됩니다. 다음 과제는이 현명한 계약을 검토하는 것입니다.
+
 Open a new terminal window to represent a MagnetoCorp developer and change to
 the directory that contains MagnetoCorp's copy of the smart contract to view it
 with your chosen editor (VS Code in this tutorial):
+
+MagnetoCorp 개발자를 나타내는 새 터미널 창을 열고 MagnetoCorp의 스마트 계약 사본이 포함 된 디렉토리로 변경하여 선택한 편집기 (이 자습서의 VS 코드)로이를 확인하십시오.
 
 ```
 (magnetocorp developer)$ cd commercial-paper/organization/magnetocorp/contract
@@ -466,11 +520,15 @@ with your chosen editor (VS Code in this tutorial):
 In the `lib` directory of the folder, you'll see `papercontract.js` file -- this
 contains the commercial paper smart contract!
 
+폴더의 lib 디렉토리에 papercontract.js 파일이 표시됩니다. 여기에는 commercial paper 스마트 계약이 포함되어 있습니다!
+
 ![commercialpaper.vscode1](./commercial_paper.diagram.10.png) *An example code
 editor displaying the commercial paper smart contract in `papercontract.js`*
 
 `papercontract.js` is a JavaScript program designed to run in the node.js
 environment. Note the following key program lines:
+
+papercontract.js는 node.js 환경에서 실행되도록 설계된 JavaScript 프로그램입니다. 다음의 주요 프로그램 라인에 유의하십시오.
 
 * `const { Contract, Context } = require('fabric-contract-api');`
 
@@ -479,6 +537,7 @@ environment. Note the following key program lines:
   can learn more about these classes in the
   [`fabric-shim` JSDOCS](https://fabric-shim.github.io/).
 
+  이 문장은 스마트 계약에 의해 광범위하게 사용될 두 가지 주요 Hyperledger Fabric 클래스 (계약 및 컨텍스트)를 제공합니다. fabric-shim JSDOCS에서 이러한 클래스에 대해 자세히 알아볼 수 있습니다.
 
 * `class CommercialPaperContract extends Contract {`
 
@@ -487,15 +546,21 @@ environment. Note the following key program lines:
   transactions to `issue`, `buy` and `redeem` commercial paper are defined
   within this class.
 
+  내장 된 패브릭 계약 클래스를 기반으로 스마트 계약 클래스 CommercialPaperContract를 정의합니다. commercial paper 발행, 구매 및 교환하기 위해 주요 거래를 구현하는 방법은 이 클래스에서 정의됩니다.
+
 
 * `async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime...) {`
 
   This method defines the commercial paper `issue` transaction for PaperNet. The
   parameters that are passed to this method will be used to create the new
   commercial paper.
+  
+  이 방법은 PaperNet의 commercial paper 발행 거래를 정의합니다. 이 방법으로 전달 된 매개 변수는 새 상업용 용지를 만드는 데 사용됩니다.
 
   Locate and examine the `buy` and `redeem` transactions within the smart
   contract.
+  
+  스마트 계약 내에서 구매 및 교환 거래를 찾아서 검토하십시오.
 
 
 * `let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime...);`
@@ -504,6 +569,8 @@ environment. Note the following key program lines:
   in memory using the `CommercialPaper` class with the supplied transaction
   inputs. Examine the `buy` and `redeem` transactions to see how they similarly
   use this class.
+  
+  문제 거래 내에서이 명세서는 제공된 거래 입력과 함께 CommercialPaper 클래스를 사용하여 메모리에 새 상용 용지를 만듭니다. 구매 및 교환 거래를 검토하여 유사하게이 클래스를 사용하는 방법을 확인하십시오.
 
 
 * `await ctx.paperList.addPaper(paper);`
@@ -512,17 +579,25 @@ environment. Note the following key program lines:
   `ctx.paperList`, an instance of a `PaperList` class that was created when the
   smart contract context `CommercialPaperContext` was initialized. Again,
   examine the `buy` and `redeem` methods to see how they use this class.
+  
+  이 명령문은 스마트 계약 컨텍스트 CommercialPaperContext가 초기화 될 때 작성된 PaperList 클래스의 인스턴스 인 ctx.paperList 를 사용하여 새로운 commercial paper 를 원장에 추가합니다. 다시 구매 및 사용 방법을 검토하여이 클래스를 어떻게 사용하는지 확인하십시오.
 
 
 * `return paper.toBuffer();`
 
   This statement returns a binary buffer as response from the `issue`
   transaction for processing by the caller of the smart contract.
+  
+  이 명령문은 스마트 계약의 호출자가 처리하기 위해 발행 트랜잭션의 응답으로 이진 버퍼를 리턴합니다.
 
 
 Feel free to examine other files in the `contract` directory to understand how
 the smart contract works, and read in detail how `papercontract.js` is
 designed in the smart contract [topic](../developapps/smartcontract.html).
+
+contract 디렉토리의 다른 파일을 검토하여 스마트 계약의 작동 방식을 이해하고 스마트 계약 주제에서 papercontract.js 가 설계되는 방식을 자세히 읽으십시오.
+
+
 
 ## Install contract
 
