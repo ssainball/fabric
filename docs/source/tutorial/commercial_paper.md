@@ -606,6 +606,8 @@ the appropriate peer nodes in PaperNet.  MagnetoCorp and DigiBank administrators
 are able to install `papercontract` onto peers over which they respectively have
 authority.
 
+응용 프로그램에서 'papercontract'를 호출하기 전에 PaperNet의 해당 피어 노드에 설치해야합니다. MagnetoCorp 및 DigiBank 관리자는 각각 권한이있는 동료에게 종이 계약서를 설치할 수 있습니다.
+
 ![commercialpaper.install](./commercial_paper.diagram.6.png) *A MagnetoCorp
 administrator installs a copy of the `papercontract` onto a MagnetoCorp peer.*
 
@@ -615,6 +617,8 @@ or more smart contracts can be defined within a single chaincode, and installing
 a chaincode will allow them to be consumed by the different organizations in
 PaperNet.  It means that only administrators need to worry about chaincode;
 everyone else can think in terms of smart contracts.
+
+스마트 계약은 응용 프로그램 개발의 초점이며 체인 코드라는 Hyperledger Fabric 아티팩트에 포함되어 있습니다. 단일 체인 코드 내에서 하나 이상의 스마트 계약을 정의 할 수 있으며 체인 코드를 설치하면 PaperNet의 여러 조직에서 계약을 사용할 수 있습니다. 즉, 관리자 만 체인 코드에 대해 걱정할 필요가 있습니다. 다른 모든 사람들은 스마트 계약으로 생각할 수 있습니다.
 
 The MagnetoCorp administrator uses the `peer chaincode install` command to copy
 the `papercontract` smart contract from their local machine's file system to the
@@ -628,9 +632,13 @@ and
 Fabric APIs. Examine how these APIs are used by `StateList` class within
 `ledger-api\statelist.js`.
 
+MagnetoCorp 관리자는 'peer chaincode install' 명령을 사용하여 papercontract 스마트 계약을 로컬 시스템의 파일 시스템에서 대상 피어의 도커 컨테이너 내의 파일 시스템으로 복사합니다. 스마트 계약이 피어에 설치되고 채널에서 인스턴스화되면 응용 프로그램에서 papercontract를 호출하고 putState() 및 getState() Fabric API를 통해 원장 데이터베이스와 상호 작용할 수 있습니다. ledger-api\statelist.js 내의 StateList 클래스에서 이러한 API를 사용하는 방법을 조사하십시오.
+
 Let's now install `papercontract` as the MagnetoCorp administrator. In the
 MagnetoCorp administrator's command window, use the `docker exec` command to run
 the `peer chaincode install` command in the `cliMagnetCorp` container:
+
+이제 MagnetoCorp 관리자로서 papercontract를 설치하겠습니다. MagnetoCorp 관리자의 명령 창에서 docker exec 명령을 사용하여 cliMagnetCorp 컨테이너에서 'peer chaincode install' 설치 명령을 실행하십시오.
 
 ```
 (magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
@@ -647,11 +655,16 @@ The `cliMagnetCorp` container has set
 MagnetoCorp administrator only has to install a copy of `papercontract` on a
 single MagentoCorp peer.
 
+cliMagnetCorp 컨테이너는 'CORE_PEER_ADDRESS=peer0.org1.example.com:7051' 을 설정하여 해당 명령을 'peer0.org1.example.com' 으로 지정하고 'INFO 003 Installed remotely ...' 는 이 피어에 PaperContract가 성공적으로 설치되었음을 나타냅니다. 현재 MagnetoCorp 관리자는 단일 MagentoCorp 피어에 papercontrace 사본 만 설치하면됩니다.
+
+
 Note how `peer chaincode install` command specified the smart contract path,
 `-p`, relative to the `cliMagnetoCorp` container's file system:
 `/opt/gopath/src/github.com/contract`. This path has been mapped to the local
 file system path `.../organization/magnetocorp/contract` via the
 `magnetocorp/configuration/cli/docker-compose.yml` file:
+
+'peer chaincode install' 명령이 cliMagnetoCorp 컨테이너의 파일 시스템 '/opt/gopath/src/github.com/contract' 와 관련하여 스마트 계약 경로 -p를 어떻게 지정했는지 참고하십시오. 이 경로는 'magnetocorp/configuration/cli/docker-compose.yml' 파일을 통해 로컬 파일 시스템 경로 '.../organization/magnetocorp/contract에 매핑되었습니다.
 
 ```yaml
 volumes:
@@ -664,9 +677,14 @@ See how the `volume` directive maps `organization/magnetocorp` to
 `/opt/gopath/src/github.com/` providing this container access to your local file
 system where MagnetoCorp's copy of the `papercontract` smart contract is held.
 
+volume 지시문이 'organization/magnetocorp' 를 '/opt/gopath/src/github.com/' 에 매핑하는 방법을 보고 MagnetoCorp의 papercontract 스마트 계약 사본이 보관되어 있는 로컬 파일 시스템에 이 컨테이너 액세스를 제공하십시오.
+
 You can read more about `docker compose`
 [here](https://docs.docker.com/compose/overview/) and `peer chaincode install`
 command [here](../commands/peerchaincode.html).
+
+docker compose 및 peer chaincode install 명령에 대한 자세한 내용은 여기를 참조하십시오.
+
 
 ## Instantiate contract
 
