@@ -11,7 +11,7 @@ procedures above concepts. When you’d like to understand the concepts in more
 detail, you can read the
 [Developing Applications](../developapps/developing_applications.html) topic.
 
-이 학습서에서는 commercial paper sample 애플리케이션 및 스마트 계약을 설치하고 사용하는 방법을 보여줍니다. 작업 중심의 주제이므로 개념 이상의 절차를 강조합니다. 개념을보다 자세히 이해하려면 Developing Applications 주제를 읽으십시오.
+이 학습서에서는 commercial paper sample 애플리케이션 및 스마트 계약을 설치하고 사용하는 방법을 보여줍니다. 작업 중심의 주제이므로 개념 이상의 절차를 강조합니다. 개념을 보다 자세히 이해하려면 Developing Applications 주제를 읽으십시오.
 
 ![commercialpaper.tutorial](./commercial_paper.diagram.1.png) *In this tutorial
 two organizations, MagnetoCorp and DigiBank, trade commercial paper with each
