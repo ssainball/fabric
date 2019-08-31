@@ -17,8 +17,7 @@ detail, you can read the
 two organizations, MagnetoCorp and DigiBank, trade commercial paper with each
 other using PaperNet, a Hyperledger Fabric blockchain network.*
 
-이 자습서에서는 MagnetoCorp와 DigiBank라는 두 조직이 Hyperledger Fabric 블록체인 
-네트워크 인 PaperNet을 사용하여 commercial paper 를 서로 교환합니다.
+이 자습서에서는 MagnetoCorp와 DigiBank라는 두 조직이 Hyperledger Fabric 블록체인 네트워크 인 PaperNet을 사용하여 commercial paper 를 서로 교환합니다.
 
 Once you've set up a basic network, you'll act as Isabella, an employee of
 MagnetoCorp, who will issue a commercial paper on its behalf. You'll then switch
@@ -26,10 +25,7 @@ hats to take the role of Balaji, an employee of DigiBank, who will buy this
 commercial paper, hold it for a period of time, and then redeem it with
 MagnetoCorp for a small profit.
 
-기본 네트워크를 설정하면 MagnetoCorp의 직원 인 Isabella의 역할을 수행하여 이를 대신
-하여 commercial paper 를 발행합니다. 그런 다음 모자를 전환하여 DigiBank의 직원 인 
-Balaji 가 이 commercial paper 를 구입하고 일정 기간 동안 보유한 다음 MagnetoCorp 로
-소량의 이익을 위해 교환하십시오.
+기본 네트워크를 설정하면 MagnetoCorp의 직원 인 Isabella의 역할을 수행하여 이를 대신 하여 commercial paper 를 발행합니다. 그런 다음 모자를 전환하여 DigiBank의 직원 인 Balaji 가 이 commercial paper 를 구입하고 일정 기간 동안 보유한 다음 MagnetoCorp 로 소량의 이익을 위해 교환하십시오.
 
 You'll act as an developer, end user, and administrator, each in different
 organizations, performing the following steps designed to help you understand
@@ -37,9 +33,7 @@ what it's like to collaborate as two different organizations working
 independently, but according to mutually agreed rules in a Hyperledger Fabric
 network.
 
-서로 다른 조직에서 각각 개발자, 최종 사용자 및 관리자 역할을 수행하여 독립적으로 작업
-하는 두 조직이 서로 협력하고 Hyperledger Fabric의 상호 합의 된 규칙에 따라 협업 하는
-방법을 이해하도록 돕기 위해 다음 단계를 수행합니다.
+서로 다른 조직에서 각각 개발자, 최종 사용자 및 관리자 역할을 수행하여 독립적으로 작업 하는 두 조직이 서로 협력하고 Hyperledger Fabric의 상호 합의 된 규칙에 따라 협업 하는 방법을 이해하도록 돕기 위해 다음 단계를 수행합니다.
 
 * [Set up machine](#prerequisites) and [download samples](#download-samples)
 * [Create a network](#create-network)
@@ -73,8 +67,7 @@ network.
 This tutorial has been tested on MacOS and Ubuntu, and should work on other
 Linux distributions. A Windows version is under development.
 
-이 튜토리얼은 MacOS 및 Ubuntu에서 테스트되었으며 다른 Linux 배포판에서 작동합니다.
-Windows 버전은 개발 중입니다.
+이 튜토리얼은 MacOS 및 Ubuntu에서 테스트되었으며 다른 Linux 배포판에서 작동합니다. Windows 버전은 개발 중입니다.
 
 
 ## Prerequisites
@@ -82,21 +75,18 @@ Windows 버전은 개발 중입니다.
 Before you start, you must install some prerequisite technology required by the
 tutorial. We've kept these to a minimum so that you can get going quickly.
 
-시작하기 전에 학습서에 필요한 일부 전제 조건 기술을 설치해야합니다. 설치 소요 시간을
-최소한으로 유지했습니다.
+시작하기 전에 학습서에 필요한 일부 전제 조건 기술을 설치해야합니다. 설치 소요 시간을 최소화 하였습니다.
 
 You **must** have the following technologies installed:
 
-다음 기술이 설치되어 있어야합니다:
+다음 기술들이 설치되어 있어야합니다:
 
   * [**Node**](https://nodejs.org/en/about/) version 8.9.0, or higher. Node is
     a JavaScript runtime that you can use to run applications and smart
     contracts. You are recommended to use the LTS (Long Term Support) version
     of node. Install node [here](https://nodejs.org/en/).
     
-  * Node 버전 8.9.0 이상 Node는 애플리케이션 및 스마트 계약을 실행하는 데 사용할
-    수 있는 JavaScript 런타임입니다. LTS(Long Term Support) 버전의 노드를 사용하는
-    것이 좋습니다. 노드를 설치하십시오.
+  * Node 버전 8.9.0 이상 Node는 애플리케이션 및 스마트 계약을 실행하는 데 사용할 수 있는 JavaScript 런타임입니다. LTS(Long Term Support) 버전의 노드를 사용하는 것이 좋습니다. 노드를 설치하십시오.
 
 
   * [**Docker**](https://www.docker.com/get-started) version 18.06, or higher.
@@ -106,10 +96,7 @@ You **must** have the following technologies installed:
     in a docker container. Install Docker
     [here](https://www.docker.com/get-started).
 
-  * Docker 버전 18.06 이상 Docker는 개발자와 관리자가 응용 프로그램 및 스마트 계약을
-    작성하고 실행하기위한 표준 환경을 만들 수 있도록 도와줍니다. Hyperledger Fabric은
-    Docker 이미지 세트로 제공되며 PaperNet 스마트 계약은 docker 컨테이너에서 실행
-    됩니다. Docker를 설치하십시오.
+  * Docker 버전 18.06 이상 Docker는 개발자와 관리자가 응용 프로그램 및 스마트 계약을 작성하고 실행하기위한 표준 환경을 만들 수 있도록 도와줍니다. Hyperledger Fabric은 Docker 이미지 세트로 제공되며 PaperNet 스마트 계약은 docker 컨테이너에서 실행 됩니다. Docker를 설치하십시오.
 
 You **will** find it helpful to install the following technologies:
 
@@ -125,8 +112,7 @@ You **will** find it helpful to install the following technologies:
     [Brackets](http://www.sublimetext.com/).
 
 
-  * Visual Studio Code 버전 1.28 이상과 같은 소스 코드 편집기 VS Code는 응용 프로
-    그램과 현명한 계약을 개발하고 테스트하는 데 도움이됩니다. VS 코드를 설치하십시오.
+  * Visual Studio Code 버전 1.28 이상과 같은 소스 코드 편집기 VS Code는 응용 프로 그램과 현명한 계약을 개발하고 테스트하는 데 도움이됩니다. VS 코드를 설치하십시오.
 
     Atom, Sublime Text 및 Brackets를 포함한 많은 코드 편집기를 사용할 수 있습니다.
 
@@ -135,8 +121,7 @@ You **may** find it helpful to install the following technologies as you become
 more experienced with application and smart contract development. There's no
 requirement to install these when you first run the tutorial:
 
-응용 프로그램 및 스마트 계약 개발에 익숙해지면 다음 기술을 설치하는 것이 도움이 될 수
-있습니다. 튜토리얼을 처음 실행할 때 설치하지 않아도됩니다.
+응용 프로그램 및 스마트 계약 개발에 익숙해지면 다음 기술을 설치하는 것이 도움이 될 수 있습니다. 튜토리얼을 처음 실행할 때 설치하지 않아도됩니다.
 
 
   * [**Node Version Manager**](https://github.com/creationix/nvm). NVM helps you
@@ -144,8 +129,7 @@ requirement to install these when you first run the tutorial:
     if you're working on multiple projects at the same time. Install NVM
     [here](https://github.com/creationix/nvm#installation).
 
-  * 노드 버전 관리자. NVM을 사용하면 서로 다른 버전의 노드간에 쉽게 전환 할 수 있습니다.
-    동시에 여러 프로젝트를 작업하는 경우 매우 유용합니다. NVM을 설치하십시오.
+  * 노드 버전 관리자. NVM을 사용하면 서로 다른 버전의 노드간에 쉽게 전환 할 수 있습니다. 동시에 여러 프로젝트를 작업하는 경우 매우 유용합니다. NVM을 설치하십시오.
 
 
 ## Download samples
@@ -156,9 +140,7 @@ The commercial paper tutorial is one of the Hyperledger Fabric
 going to run the tutorial on your machine, your first task is to download the
 `fabric-samples` repository.
 
-'Commercial paper tutorial'은 패브릭 샘플이라는 공용 GitHub 저장소에 보관 된 
-Hyperledger Fabric 샘플 중 하나입니다. 머신에서 튜토리얼을 실행할 때 가장 먼저 할 일은
-패브릭 샘플 저장소를 다운로드하는 것입니다.
+'Commercial paper tutorial'은 패브릭 샘플이라는 공용 GitHub 저장소에 보관 된 Hyperledger Fabric 샘플 중 하나입니다. 머신에서 튜토리얼을 실행할 때 가장 먼저 할 일은 패브릭 샘플 저장소를 다운로드하는 것입니다.
 
 ![commercialpaper.download](./commercial_paper.diagram.2.png) *Download the
 `fabric-samples` GitHub repository to your local machine.*
@@ -170,9 +152,7 @@ identifies the root directory for installation. It is important to get right no
 matter which programming language you're using! Open a new terminal window and
 check your `$GOPATH` is set using the `env` command:
 
-$ GOPATH는 Hyperledger Fabric에서 중요한 환경 변수입니다. 설치를위한 루트 디렉토리를
-식별합니다. 사용중인 프로그래밍 언어에 상관없이 올바르게 이해하는 것이 중요합니다! 새
-터미널 창을 열고 env 명령을 사용하여 $ GOPATH가 설정되어 있는지 확인하십시오.
+$ GOPATH는 Hyperledger Fabric에서 중요한 환경 변수입니다. 설치를위한 루트 디렉토리를 식별합니다. 사용중인 프로그래밍 언어에 상관없이 올바르게 이해하는 것이 중요합니다! 새 터미널 창을 열고 env 명령을 사용하여 $ GOPATH가 설정되어 있는지 확인하십시오.
 
 
 ```
@@ -235,8 +215,7 @@ You've now completed the first stage of the tutorial! As you proceed, you'll
 open multiple command windows open for different users and components. For
 example:
 
-이제 튜토리얼의 첫 번째 단계를 완료했습니다! 계속 진행하면 다른 사용자 및 구성 요소에
-대해 여러 개의 명령 창이 열립니다. 예를 들면 다음과 같습니다.
+이제 튜토리얼의 첫 번째 단계를 완료했습니다! 계속 진행하면 다른 사용자 및 구성 요소에 대해 여러 개의 명령 창이 열립니다. 예를 들면 다음과 같습니다.
 
 * to run applications on behalf of Isabella and Balaji who will trade commercial
   paper with each other
@@ -245,8 +224,7 @@ example:
 * to show peer, orderer and CA log output
 
 * Isabella와 Balaji를 대신하여 상업용 용지를 거래하는 응용 프로그램을 실행
-* 스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 
-  대신하여 명령을 발행
+* 스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 대신하여 명령을 발행
 * 피어, 주문자 및 CA 로그 출력을 표시
 
 We'll make it clear when you should run a command from particular command
