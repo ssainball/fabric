@@ -1,7 +1,7 @@
 # Commercial paper tutorial
 
 **Audience:** Architects, application and smart contract developers,
-administrators-test
+administrators
 
 This tutorial will show you how to install and use a commercial paper sample
 application and smart contract. It is a task-oriented topic, so it emphasizes
