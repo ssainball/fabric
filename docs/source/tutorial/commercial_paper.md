@@ -14,11 +14,13 @@ detail, you can read the
 이 학습서에서는 commercial paper sample 애플리케이션 및 스마트 계약을 설치하고
 사용하는 방법을 보여줍니다. 작업 중심의 주제이므로 개념 이상의 절차를 강조합니다. 
 개념을보다 자세히 이해하려면 Developing Applications 주제를 읽으십시오.
-[응용 프로그램 개발] (../developapps/developing_applications.html) topic.
 
 ![commercialpaper.tutorial](./commercial_paper.diagram.1.png) *In this tutorial
 two organizations, MagnetoCorp and DigiBank, trade commercial paper with each
 other using PaperNet, a Hyperledger Fabric blockchain network.*
+
+이 자습서에서는 MagnetoCorp와 DigiBank라는 두 조직이 Hyperledger Fabric 블록체인 
+네트워크 인 PaperNet을 사용하여 commercial paper 를 서로 교환합니다.
 
 Once you've set up a basic network, you'll act as Isabella, an employee of
 MagnetoCorp, who will issue a commercial paper on its behalf. You'll then switch
@@ -26,11 +28,20 @@ hats to take the role of Balaji, an employee of DigiBank, who will buy this
 commercial paper, hold it for a period of time, and then redeem it with
 MagnetoCorp for a small profit.
 
+기본 네트워크를 설정하면 MagnetoCorp의 직원 인 Isabella의 역할을 수행하여 이를 대신
+하여 commercial paper 를 발행합니다. 그런 다음 모자를 전환하여 DigiBank의 직원 인 
+Balaji 가 이 commercial paper 를 구입하고 일정 기간 동안 보유한 다음 MagnetoCorp 로
+소량의 이익을 위해 교환하십시오.
+
 You'll act as an developer, end user, and administrator, each in different
 organizations, performing the following steps designed to help you understand
 what it's like to collaborate as two different organizations working
 independently, but according to mutually agreed rules in a Hyperledger Fabric
 network.
+
+서로 다른 조직에서 각각 개발자, 최종 사용자 및 관리자 역할을 수행하여 독립적으로 작업
+하는 두 조직이 서로 협력하고 Hyperledger Fabric의 상호 합의 된 규칙에 따라 협업 하는
+방법을 이해하도록 돕기 위해 다음 단계를 수행합니다.
 
 * [Set up machine](#prerequisites) and [download samples](#download-samples)
 * [Create a network](#create-network)
@@ -48,6 +59,16 @@ network.
   the smart contract in their [applications](#digibank-applications)
 * As Digibank, [run](#run-as-digibank) applications that
   [buy](#buy-application) and [redeem](#redeem-application) commercial paper
+
+* machine 설정 및 샘플 다운로드
+* 네트워크 만들기
+* 스마트 컨트랙트의 구조 이해
+* 스마트 계약을 설치하고 인스턴스화하기 위해 MagnetoCorp 조직으로 작업
+* 의존성을 포함하여 MagnetoCorp 애플리케이션의 구조 이해
+* 지갑과 아이덴티티 구성 및 사용
+* MagnetoCorp 응용 프로그램을 실행하여 상업용 용지를 발행하십시오
+* 두 번째 조직인 Digibank가 애플리케이션에서 스마트 계약을 사용하는 방법 이해
+* Digibank 로서 commercial paper 를 구매하고 사용하는 응용 프로그램을 실행하십시오.
 
 This tutorial has been tested on MacOS and Ubuntu, and should work on other
 Linux distributions. A Windows version is under development.
