@@ -686,6 +686,8 @@ command [here](../commands/peerchaincode.html).
 docker compose 및 peer chaincode install 명령에 대한 자세한 내용은 여기를 참조하십시오.
 
 
+
+
 ## Instantiate contract
 
 Now that `papercontract` chaincode containing the `CommercialPaper` smart
@@ -695,13 +697,19 @@ applications connected to those channels. Because we're using the basic network
 configuration for PaperNet, we're only going to make `papercontract` available
 in a single network channel, `mychannel`.
 
+이제 CommercialPaper 스마트 계약을 포함하는 papercontract 체인코드가 필요한 PaperNet 피어에 설치되었으므로 관리자는 다른 네트워크 채널에서 사용할 수 있도록하여 해당 채널에 연결된 응용 프로그램에서 호출 할 수 있습니다. 우리는 PaperNet에 기본 네트워크 구성을 사용하고 있기 때문에 단일 네트워크 채널 인 mychannel에서만 papercontract 을 사용할 수 있습니다.
+
 ![commercialpaper.instant](./commercial_paper.diagram.7.png) *A MagnetoCorp
 administrator instantiates `papercontract` chaincode containing the smart
 contract. A new docker chaincode container will be created to run
 `papercontract`.*
 
+MagnetoCorp 관리자는 스마트 계약이 포함 된 papercontract 체인코드를 인스턴스화합니다. papercontract를 실행하기 위해 새로운 docker chaincode 컨테이너가 생성됩니다.
+
 The MagnetoCorp administrator uses the `peer chaincode instantiate` command to
 instantiate `papercontract` on `mychannel`:
+
+MagnetoCorp 관리자는 'peer chaincode instantiate' 명령을 사용하여 mychannel에서 papercontract를 인스턴스화합니다.
 
 ```
 (magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P "AND ('Org1MSP.member')"
@@ -719,6 +727,8 @@ valid or invalid, will be recorded on the [ledger blockchain](../ledger/ledger.h
 but only valid transactions will update the [world
 state](../ledger/ledger.html#world-state).
 
+인스턴스화에서 가장 중요한 매개 변수 중 하나는 -P 옵션입니다. 이 계약은 유효한 것으로 결정되기 전에 거래를 승인 (실행 및 서명)해야하는 조직 세트를 설명하는 서면 계약 승인 정책을 지정합니다. 유효 여부에 관계없이 모든 거래는 원장 블록 체인에 기록되지만 유효한 거래 만 world state 를 업데이트합니다.
+
 In passing, see how `instantiate` passes the orderer address
 `orderer.example.com:7050`. This is because it additionally submits an
 instantiate transaction to the orderer, which will include the transaction
@@ -727,8 +737,12 @@ in the next block and distribute it to all peers that have joined
 isolated chaincode container. Note that `instantiate` only needs to be issued
 once for `papercontract` even though typically it is installed on many peers.
 
+전달에서 인스턴스화가 주문자 주소 orderer.example.com:7050을 전달하는 방법을 참조하십시오. 이는 주문자에게 인스턴스화 트랜잭션을 추가로 제출하기 때문에 다음 블록의 트랜잭션을 포함하고 mychannel에 참여한 모든 피어에 트랜잭션을 분배하여 모든 피어가 자신의 격리 된 체인코드 컨테이너에서 체인코드를 실행할 수 있도록하기 때문입니다. 일반적으로 많은 피어에 설치되어 있지만 종이 계약이 실행될 채널에 대해 인스턴스화를 한 번만 발행하면됩니다.
+
 See how a `papercontract` container has been started with the `docker ps`
 command:
+
+docker ps 명령으로 papercontract 컨테이너가 어떻게 시작되었는지 확인하십시오.
 
 ```
 (magnetocorp admin)$ docker ps
@@ -741,9 +755,15 @@ Notice that the container is named
 `dev-peer0.org1.example.com-papercontract-0-d96...` to indicate which peer
 started it, and the fact that it's running `papercontract` version `0`.
 
+컨테이너의 이름은 dev-peer0.org1.example.com-papercontract-0-d96 ...입니다. 어떤 피어가 컨테이너를 시작했는지와 papercontract 버전 0을 실행한다는 사실을 나타냅니다.
+
 Now that we've got a basic PaperNet up and running, and `papercontract`
 installed and instantiated, let's turn our attention to the MagnetoCorp
 application which issues a commercial paper.
+
+기본 PaperNet을 설치하고 실행하고 papercontract를 설치하고 인스턴스화 했으므로 이제 commerciap paper 를 발행하는 MagnetoCorp 응용 프로그램에 주의를 기울 이겠습니다.
+
+
 
 ## Application structure
 
@@ -752,10 +772,14 @@ application `issue.js`. Isabella uses this application to submit a transaction
 to the ledger which issues commercial paper `00001`. Let's quickly examine how
 the `issue` application works.
 
+Papercontract에 포함 된 스마트 계약은 MagnetoCorp의 application issue.js에 의해 호출됩니다. Isabella 는 이 응용 프로그램을 사용하여 상업 용지 00001을 발행하는 원장에게 거래를 제출합니다. 문제 응용 프로그램의 작동 방식을 빠르게 살펴 보겠습니다.
+
 ![commercialpaper.application](./commercial_paper.diagram.8.png) *A gateway
 allows an application to focus on transaction generation, submission and
 response. It coordinates transaction proposal, ordering and notification
 processing between the different network components.*
+
+게이트웨이는 애플리케이션이 트랜잭션 생성, 제출 및 응답에 집중할 수 있도록합니다. 다른 네트워크 구성 요소 간의 트랜잭션 제안, 주문 및 알림 처리를 조정합니다.
 
 Because the `issue` application submits transactions on behalf of Isabella, it
 starts by retrieving Isabella's X.509 certificate from her
@@ -769,9 +793,13 @@ focus on application logic while delegating network interaction to the
 gateway. Gateways and wallets make it straightforward to write Hyperledger
 Fabric applications.
 
+문제 응용 프로그램은 Isabella를 대신하여 거래를 제출하기 때문에 지갑에서 Isabella의 X.509 인증서를 검색하여 시작합니다.이 인증서는 로컬 파일 시스템 또는 Hardware Security Module HSM에 저장 될 수 있습니다. 그러면 발행 애플리케이션은 게이트웨이를 사용하여 채널에서 트랜잭션을 제출할 수 있습니다. Hyperledger Fabric SDK는 게이트웨이 추상화를 제공하여 응용 프로그램이 응용 프로그램 논리에 집중하면서 네트워크 상호 작용을 게이트웨이에 위임 할 수 있습니다. 게이트웨이와 지갑을 사용하면 Hyperledger Fabric 애플리케이션을 간단하게 작성할 수 있습니다.
+
 So let's examine the `issue` application that Isabella is going to use. open a
 separate terminal window for her, and in `fabric-samples` locate the MagnetoCorp
 `/application` folder:
+
+이자벨라가 사용할 이슈 애플리케이션을 살펴 봅시다. 그녀를 위해 별도의 터미널 창을 열고 'fabric-samples/application' 디렉토리에서 'MagnetoCorp/application' 폴더를 찾으십시오.
 
 ```
 (magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application/
@@ -784,8 +812,12 @@ addToWallet.js		issue.js		package.json
 identity into her wallet, and `issue.js` will use this identity to create
 commercial paper `00001` on behalf of MagnetoCorp by invoking `papercontract`.
 
+addToWallet.js는 Isabella가 자신의 신분을 지갑에 넣는 데 사용할 프로그램이며, issue.js는이 신원을 사용하여 papercontract를 호출하여 MagnetoCorp를 대신하여 상업용 용지 00001을 작성합니다.
+
 Change to the directory that contains MagnetoCorp's copy of the application
 `issue.js`, and use your code editor to examine it:
+
+MagnetoCorp의 애플리케이션 issue.js 사본이 포함 된 디렉토리로 변경하고 코드 편집기를 사용하여 이를 검사하십시오.
 
 ```
 (magnetocorp user)$ cd commercial-paper/organization/magnetocorp/application
@@ -795,16 +827,24 @@ Change to the directory that contains MagnetoCorp's copy of the application
 Examine this directory; it contains the issue application and all its
 dependencies.
 
+이 디렉토리를 검사하십시오. 문제 응용 프로그램 및 모든 해당 종속성이 포함되어 있습니다.
+
 ![commercialpaper.vscode2](./commercial_paper.diagram.11.png) *A code editor
 displaying the contents of the commercial paper application directory.*
 
+상용 용지 응용 프로그램 디렉토리의 내용을 표시하는 코드 편집기.
+
 Note the following key program lines in `issue.js`:
+
+issue.js의 다음 주요 프로그램 라인에 유의하십시오.
 
 * `const { FileSystemWallet, Gateway } = require('fabric-network');`
 
   This statement brings two key Hyperledger Fabric SDK classes into scope --
   `Wallet` and `Gateway`. Because Isabella's X.509 certificate is in the local
   file system, the application uses `FileSystemWallet`.
+  
+  이 문장은 두 가지 주요 Hyperledger Fabric SDK 클래스 인 월렛과 게이트웨이를 제공합니다. Isabella의 X.509 인증서는 로컬 파일 시스템에 있으므로 응용 프로그램은 FileSystemWallet을 사용합니다.
 
 
 * `const wallet = new FileSystemWallet('../identity/user/isabella/wallet');`
@@ -814,21 +854,29 @@ Note the following key program lines in `issue.js`:
   particular identity within `isabella` wallet. (The wallet must have been
   loaded with the Isabella's X.509 certificate -- that's what `addToWallet.js`
   does.)
+  
+  이 문장은 애플리케이션이 블록 체인 네트워크 채널에 연결될 때 isabella 지갑을 사용할 것임을 식별합니다. 응용 프로그램은 isabella 지갑 내에서 특정 신원을 선택합니다. (지갑에는 Isabella의 X.509 인증서가 로드되어 있어야합니다. 이것이 addToWallet.js의 기능입니다.)
 
 
 * `await gateway.connect(connectionProfile, connectionOptions);`
 
   This line of code connects to the network using the gateway identified by
   `connectionProfile`, using the identity referred to in `ConnectionOptions`.
+  
+  이 코드 줄은 ConnectionOptions에서 참조 된 ID를 사용하여 connectionProfile로 식별 된 게이트웨이를 사용하여 네트워크에 연결합니다.
 
   See how `../gateway/networkConnection.yaml` and `User1@org1.example.com` are
   used for these values respectively.
+  
+  이 값에 ../gateway/networkConnection.yaml 및 User1@org1.example.com이 각각 어떻게 사용되는지 확인하십시오.
 
 
 * `const network = await gateway.getNetwork('mychannel');`
 
   This connects the application to the network channel `mychannel`, where the
   `papercontract` was previously instantiated.
+  
+  그러면 응용 프로그램이 네트워크 계약 mychannel에 연결되며, 여기서 papercontract 이 이전에 인스턴스화되었습니다.
 
 
 *  `const contract = await network.getContract('papercontract', 'org.papernet.comm...');`
@@ -837,6 +885,8 @@ Note the following key program lines in `issue.js`:
   by the namespace `org.papernet.commercialpaper` within `papercontract`. Once
   an application has issued getContract, it can submit any transaction
   implemented within it.
+  
+  이 명세서는 papercontract 내에서 org.papernet.commercialpaper 네임스페이스에 의해 정의 된 스마트 컨트랙트에 대한 애플리케이션 주소 지정을 제공합니다. 응용 프로그램이 getContract를 발행하면 응용 프로그램 내에 구현 된 트랜잭션을 제출할 수 있습니다.
 
 
 * `const issueResponse = await contract.submitTransaction('issue', 'MagnetoCorp', '00001'...);`
@@ -845,17 +895,25 @@ Note the following key program lines in `issue.js`:
   transaction defined within the smart contract. `MagnetoCorp`, `00001`... are
   the values to be used by the `issue` transaction to create a new commercial
   paper.
+  
+  이 코드 라인은 스마트 계약 내에 정의 된 발행 트랜잭션을 사용하여 트랜잭션을 네트워크에 제출합니다. MagnetoCorp, 00001…은 발행 거래에서 새 commercial paper 를 생성하는 데 사용되는 값입니다.
 
 * `let paper = CommercialPaper.fromBuffer(issueResponse);`
 
   This statement processes the response from the `issue` transaction. The
   response needs to deserialized from a buffer into `paper`, a `CommercialPaper`
   object which can interpreted correctly by the application.
+  
+  이 명세서는 이슈 거래의 응답을 처리합니다. 응용 프로그램에서 올바르게 해석 할 수있는 CommercialPaper 개체 인 버퍼에서 용지로 응답을 역 직렬화해야합니다.
 
 
 Feel free to examine other files in the `/application` directory to understand
 how `issue.js` works, and read in detail how it is implemented in the
 application [topic](../developapps/application.html).
+
+issue.js의 작동 방식을 이해하려면 '/application' 디렉토리의 다른 파일을 자유롭게 검토하고 애플리케이션 주제에서 파일이 어떻게 구현되는지 자세히 읽으십시오.
+
+
 
 ## Application dependencies
 
@@ -869,6 +927,8 @@ connection profile, or the `fabric-network`
 [package](https://www.npmjs.com/package/fabric-network) to access the `Gateway`
 and `Wallet` classes:
 
+issue.js 응용 프로그램은 JavaScript로 작성되었으며 PaperNet 네트워크의 클라이언트 역할을 하는 node.js 환경에서 실행되도록 설계되었습니다. 일반적인 방법과 마찬가지로 MagnetoCorp의 응용 프로그램은 품질과 개발 속도를 향상시키기 위해 많은 외부 노드 패키지를 기반으로합니다. issue.js에 YAML 게이트웨이 연결 프로파일을 처리하기위한 js-yaml 패키지 또는 게이트웨이 및 월렛 클래스에 액세스하기 위한 fabric-network 패키지가 어떻게 포함되는지 고려하십시오.
+
 ```JavaScript
 const yaml = require('js-yaml');
 const { FileSystemWallet, Gateway } = require('fabric-network');
@@ -879,8 +939,12 @@ local file system using the `npm install` command. By convention, packages must
 be installed into an application-relative `/node_modules` directory for use at
 runtime.
 
+이 패키지는 npm install 명령을 사용하여 npm에서 로컬 파일 시스템으로 다운로드해야합니다. 일반적으로 패키지는 런타임시 사용하기 위해 응용 프로그램 관련 '/node_modules' 디렉토리에 설치해야합니다.
+
 Examine the `package.json` file to see how `issue.js` identifies the packages to
 download and their exact versions:
+
+package.json 파일을 검사하여 issue.js가 다운로드 할 패키지와 정확한 버전을 식별하는 방법을 확인하십시오.
 
 ```json
   "dependencies": {
@@ -893,8 +957,12 @@ download and their exact versions:
 **npm** versioning is very powerful; you can read more about it
 [here](https://docs.npmjs.com/getting-started/semantic-versioning).
 
+npm 버전 관리는 매우 강력합니다. 자세한 내용은 여기를 참조하십시오.
+
 Let's install these packages with the `npm install` command -- this may take up
 to a minute to complete:
+
+npm install 명령으로 이러한 패키지를 설치하겠습니다. 완료하는 데 최대 1 분이 걸릴 수 있습니다.
 
 ```
 (magnetocorp user)$ npm install
@@ -905,6 +973,8 @@ added 738 packages in 46.701s
 ```
 
 See how this command has updated the directory:
+
+이 명령이 디렉토리를 어떻게 업데이트했는지 확인하십시오.
 
 ```
 (magnetocorp user)$ ls
@@ -921,6 +991,10 @@ versions installed, which can prove invaluable if you want to exactly reproduce
 environments; to test, diagnose problems or deliver proven applications for
 example.
 
+'node_modules' 디렉토리를 검사하여 설치된 패키지를 확인하십시오. js-yaml과 fabric-network는 다른 npm 패키지에 내장되어 있기 때문에 많은 것들이 있습니다! 유용하게도 package-lock.json 파일은 설치된 정확한 버전을 식별하므로 환경을 정확하게 재현하려는 경우 매우 중요합니다. 예를 들어, 테스트, 문제 진단 또는 입증 된 응용 프로그램을 제공합니다.
+
+
+
 ## Wallet
 
 Isabella is almost ready to run `issue.js` to issue MagnetoCorp commercial paper
@@ -930,8 +1004,12 @@ behalf of Isabella, and therefore MagnetoCorp, it will use identity from her
 perform this one-time activity of adding appropriate X.509 credentials to her
 wallet.
 
+Isabella는 MagnetoCorp commercial paper 00001을 발행하기 위해 issue.js를 실행할 준비가 거의 되었습니다. 수행해야 할 작업이 하나뿐입니다! issue.js는 Isabella를 대신하여 MagnetoCorp를 대신하여 지갑의 신분을 사용하여 이러한 사실을 반영합니다. 이제 지갑에 적절한 X.509 자격 증명을 추가하는 이 일회성 작업을 수행해야합니다.
+
 In Isabella's terminal window, run the `addToWallet.js` program to add identity
 information to her wallet:
+
+Isabella의 터미널 창에서 addToWallet.js 프로그램을 실행하여 지갑에 신원 정보를 추가하십시오.
 
 ```
 (isabella)$ node addToWallet.js
@@ -944,10 +1022,14 @@ only uses one -- `User1@org.example.com`. This identity is currently associated
 with the basic network, rather than a more realistic PaperNet configuration --
 we'll update this tutorial soon.
 
+Isabella는 지갑에 여러 ID를 저장할 수 있지만이 예에서는 User1@org.example.com 만 사용합니다. 이 ID는 현재보다 현실적인 PaperNet 구성이 아니라 기본 네트워크와 연결되어 있습니다.이 자습서는 곧 업데이트 될 예정입니다.
+
 `addToWallet.js` is a simple file-copying program which you can examine at your
 leisure. It moves an identity from the basic network sample to Isabella's
 wallet. Let's focus on the result of this program -- the contents of
 the wallet which will be used to submit transactions to `PaperNet`:
+
+addToWallet.js는 여가 시간에 검사 할 수있는 간단한 파일 복사 프로그램입니다. 기본 네트워크 샘플에서 Isabella의 지갑으로 ID를 이동합니다. 이 프로그램의 결과 – PaperNet에 거래를 제출하는 데 사용될 지갑의 내용에 초점을 맞추겠습니다 :
 
 ```
 (isabella)$ ls ../identity/user/isabella/wallet/
@@ -960,6 +1042,8 @@ other identities used by Isabella would have their own folder. Within this
 directory you'll find the identity information that `issue.js` will use on
 behalf of `isabella`:
 
+디렉토리 구조가 User1@org1.example.com 아이디를 매핑하는 방법을 확인하십시오. Isabella가 사용하는 다른 아이디에는 자체 폴더가 있습니다. 이 디렉토리에는 issue.js가 isabella를 대신하여 사용할 신원 정보가 있습니다.
+
 
 ```
 (isabella)$ ls ../identity/user/isabella/wallet/User1@org1.example.com
@@ -971,11 +1055,15 @@ Notice:
 
 * a private key `c75bd6911a...-priv` used to sign transactions on Isabella's
   behalf, but not distributed outside of her immediate control.
+  
+  개인키 c75bd6911a ...- priv는 Isabella를 대신하여 거래에 서명하는 데 사용되었지만 즉시 통제 할 수없는 범위에는 배포되지 않았습니다.
 
 
 * a public key `c75bd6911a...-pub` which is cryptographically linked to
   Isabella's private key. This is wholly contained within Isabella's X.509
   certificate.
+  
+  Isabella의 개인키와 암호로 연결된 공개 키 c75bd6911a ...- pub 이것은 Isabella의 X.509 인증서에 전부 포함되어 있습니다.
 
 
 * a certificate `User1@org.example.com` which contains Isabella's public key
@@ -983,17 +1071,23 @@ Notice:
   creation. This certificate is distributed to the network so that different
   actors at different times can cryptographically verify information created by
   Isabella's private key.
+  
+  인증서 생성시 인증 기관에서 추가 한 Isabella의 공개키 및 기타 X.509 속성이 포함 된 인증서 User1@org.example.com 이 인증서는 다른 시간에 다른 행위자가 Isabella의 개인 키로 생성 된 정보를 암호화 적으로 확인할 수 있도록 네트워크에 배포됩니다.
 
   Learn more about certificates
   [here](../identity/identity.html#digital-certificates). In practice, the
   certificate file also contains some Fabric-specific metadata such as
   Isabella's organization and role -- read more in the
   [wallet](../developapps/wallet.html) topic.
+  
+  인증서에 대한 자세한 내용은 여기를 참조하십시오. 실제로 인증서 파일에는 Isabella의 조직 및 역할과 같은 패브릭 관련 메타 데이터도 포함되어 있습니다. 자세한 내용은 전자 지갑 주제를 참조하십시오.
 
 ## Issue application
 
 Isabella can now use `issue.js` to submit a transaction that will issue
 MagnetoCorp commercial paper `00001`:
+
+Isabella는 이제 issue.js를 사용하여 MagnetoCorp commercial paper 00001을 발행하는 거래를 제출할 수 있습니다.
 
 ```
 (isabella)$ node issue.js
@@ -1013,6 +1107,8 @@ The `node` command initializes a node.js environment, and runs `issue.js`. We
 can see from the program output that MagnetoCorp commercial paper 00001 was
 issued with a face value of 5M USD.
 
+node 명령은 node.js 환경을 초기화하고 issue.js를 실행합니다. 프로그램 출력에서 MagnetoCorp commercial paper 00001이 액면가 5M USD로 발행되었음을 알 수 있습니다.
+
 As you've seen, to achieve this, the application invokes the `issue` transaction
 defined in the `CommercialPaper` smart contract within `papercontract.js`. This
 had been installed and instantiated in the network by the MagnetoCorp
@@ -1022,6 +1118,8 @@ commercial paper as a vector state within the world state. We'll see how this
 vector state is subsequently manipulated by the `buy` and `redeem` transactions
 also defined within the smart contract.
 
+위에서 본 바와 같이,이를 달성하기 위해 응용 프로그램은 papercontract.js 내의 CommercialPaper 스마트 계약에 정의 된 이슈 트랜잭션을 호출합니다. 이것은 MagnetoCorp 관리자에 의해 네트워크에 설치되고 인스턴스화되었습니다. 이는 putState() 및 getState()와 같은 Fabric API를 통해 원장과 상호 작용하여 새로운 commercial paper 를 world state 내의 벡터 상태로 나타내는 스마트 계약입니다. 스마트 계약 내에 정의 된 구매 및 상환 거래를 통해이 벡터 상태가 어떻게 조작되는지 살펴 보겠습니다.
+
 All the time, the underlying Fabric SDK handles the transaction endorsement,
 ordering and notification process, making the application's logic
 straightforward; the SDK uses a [gateway](../developapps/gateway.html) to
@@ -1029,8 +1127,14 @@ abstract away network details and
 [connectionOptions](../developapps/connectoptions.html) to declare more advanced
 processing strategies such as transaction retry.
 
+기본 Fabric SDK는 항상 거래 승인, 주문 및 알림 프로세스를 처리하여 애플리케이션의 논리를 간단하게 만듭니다. SDK는 게이트웨이를 사용하여 네트워크 세부 사항과 connectionOptions를 추상화하여 트랜잭션 재시 도와 같은 고급 처리 전략을 선언합니다.
+
 Let's now follow the lifecycle of MagnetoCorp `00001` by switching our emphasis
 to DigiBank, who will buy the commercial paper.
+
+이제 commercial paper 를 구매할 DigiBank로 강조를 전환하여 MagnetoCorp 00001의 수명주기를 살펴 보겠습니다.
+
+
 
 ## Working as DigiBank
 
