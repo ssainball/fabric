@@ -1144,8 +1144,11 @@ administrator who will create a console configured to interact with PaperNet.
 Then Balaji, an end user, will use Digibank's `buy` application to buy
 commercial paper `00001`, moving it to the next stage in its lifecycle.
 
+이제 Commercialo 00001이 MagnetoCorp에 의해 발행되었으므로 DigiBank의 직원으로서 PaperNet과 상호 작용하도록 컨텍스트를 전환 해 보겠습니다. 먼저, PaperNet과 상호 작용하도록 구성된 콘솔을 생성 할 관리자 역할을 합니다. 그런 다음 최종 사용자 인 Balaji는 Digibank의 구매 응용 프로그램을 사용하여 commercial paper 00001을 구입하여 수명주기의 다음 단계로 옮깁니다.
+
 ![commercialpaper.workdigi](./commercial_paper.diagram.5.png) *DigiBank
 administrators and applications interact with the PaperNet network.*
+DigiBank 관리자 및 응용 프로그램은 PaperNet 네트워크와 상호 작용합니다.
 
 As the tutorial currently uses the basic network for PaperNet, the network
 configuration is quite simple. Administrators use a console similar to
@@ -1156,8 +1159,12 @@ It's the smart contract which captures the shared business process, and the
 ledger which holds the shared business data, no matter which applications call
 them.
 
+튜토리얼은 현재 PaperNet의 기본 네트워크를 사용하므로 네트워크 구성은 매우 간단합니다. 관리자는 MagnetoCorp와 유사한 콘솔을 사용하지만 Digibank의 파일 시스템에 맞게 구성되었습니다. 마찬가지로 Digibank 최종 사용자는 Digibank 고유의 논리 및 구성을 포함하지만 MagnetoCorp 응용 프로그램과 동일한 스마트 계약을 호출하는 응용 프로그램을 사용합니다. 공유 비즈니스 프로세스를 캡처하는 스마트 컨트랙트와 어떤 애플리케이션이 호출하든 상관없이 공유 비즈니스 데이터를 보유하는 원장입니다.
+
 Let's open up a separate terminal to allow the DigiBank administrator to
 interact with PaperNet. In `fabric-samples`:
+
+DigiBank 관리자가 PaperNet과 상호 작용할 수 있도록 별도의 터미널을 엽니 다. fabric-samples 디렉토리에서 :
 
 ```
 (digibank admin)$ cd commercial-paper/organization/digibank/configuration/cli/
@@ -1170,6 +1177,9 @@ Creating cliDigiBank ... done
 This docker container is now available for Digibank administrators to interact
 with the network:
 
+이 도커 컨테이너는 이제 Digibank 관리자가 네트워크와 상호 작용할 수 있습니다.
+
+
 ```(digibank admin)$ docker ps
 CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORT         NAMES
 858c2d2961d4        hyperledger/fabric-tools         "/bin/bash"              18 seconds ago      Up 18 seconds                    cliDigiBank
@@ -1180,9 +1190,14 @@ interact with the network on behalf of DigiBank. We've not shown all the docker
 containers, and in the real world DigiBank users would only see the network
 components (peers, orderers, CAs) to which they have access.
 
+이 튜토리얼에서는 cliDigiBank라는 명령 행 컨테이너를 사용하여 DigiBank를 대신하여 네트워크와 상호 작용합니다. 우리는 모든 도커 컨테이너를 표시하지 않았으며 실제로 DigiBank 사용자는 액세스 할 수있는 네트워크 구성 요소 (피어, 주문자, CA) 만 볼 수 있습니다.
+
 Digibank's administrator doesn't have much to do in this tutorial right now
 because the PaperNet network configuration is so simple. Let's turn our
 attention to Balaji.
+
+PaperNet 네트워크 구성이 매우 간단하기 때문에 Digibank의 관리자는 지금이 자습서에서 할 일이 많지 않습니다. Balaji 를 유심히 보겠습니다.
+
 
 ## Digibank applications
 
@@ -1192,9 +1207,13 @@ DigiBank. The `CommercialPaper` smart contract is the same as that used by
 MagnetoCorp's application, however the transaction is different this time --
 it's `buy` rather than `issue`. Let's examine how DigiBank's application works.
 
+Balaji는 DigiBank의 구매 응용 프로그램을 사용하여 거래 서류를 원장에게 제출합니다. 거래는 00001의 소유권을 MagnetoCorp에서 DigiBank로 이전합니다. CommercialPaper 스마트 계약은 MagnetoCorp의 응용 프로그램에서 사용하는 것과 동일하지만 이번에는 거래가 다르기 때문에 문제가 아니라 구매입니다. DigiBank의 응용 프로그램 작동 방식을 살펴 보겠습니다.
+
 Open a separate terminal window for Balaji. In `fabric-samples`, change to the
 DigiBank application directory that contains the application, `buy.js`, and open
 it with your editor:
+
+Balaji에 대한 별도의 터미널 창을 엽니 다. 패브릭 샘플에서, buy.js 애플리케이션이 포함 된 DigiBank 애플리케이션 디렉토리로 변경하고 편집기에서 이를 여십시오.
 
 ```
 (balaji)$ cd commercial-paper/organization/digibank/application/
@@ -1204,18 +1223,25 @@ it with your editor:
 As you can see, this directory contains both the `buy` and `redeem` applications
 that will be used by Balaji.
 
+보시다시피,이 디렉토리에는 Balaji가 사용할 구매 및 사용 응용 프로그램이 모두 포함되어 있습니다.
+
 
 
 ![commercialpaper.vscode3](./commercial_paper.diagram.12.png) *DigiBank's
 commercial paper directory containing the `buy.js` and `redeem.js`
 applications.*
+buy.js 및 redeem.js 애플리케이션이 포함 된 DigiBank의 상업용 용지 디렉토리.
 
 DigiBank's `buy.js` application is very similar in structure to MagnetoCorp's
 `issue.js` with two important differences:
 
+DigiBank의 buy.js 응용 프로그램은 MagnetoCorp의 issue.js와 구조가 매우 유사합니다.
+
 
   * **Identity**: the user is a DigiBank user `Balaji` rather than MagnetoCorp's
     `Isabella`
+    
+    Identity : 사용자는 MagnetoCorp의 Isabella가 아닌 DigiBank 사용자 Balaji입니다.
 
     ```JavaScript
     const wallet = new FileSystemWallet('../identity/user/balaji/wallet');`
@@ -1224,9 +1250,13 @@ DigiBank's `buy.js` application is very similar in structure to MagnetoCorp's
     See how the application uses the `balaji` wallet when it connects to the
     PaperNet network channel. `buy.js` selects a particular identity within
     `balaji` wallet.
+    
+    애플리케이션이 PaperNet 네트워크 채널에 연결될 때 balaji 지갑을 사용하는 방법을보십시오. buy.js는 balaji wallet에서 특정 ID를 선택합니다.
 
 
   * **Transaction**: the invoked transaction is `buy` rather than `issue`
+  
+  거래 : 호출 된 거래는 발행물이 아니라 구매입니다
 
     ```JavaScript
     `const buyResponse = await contract.submitTransaction('buy', 'MagnetoCorp', '00001'...);`
@@ -1235,10 +1265,15 @@ DigiBank's `buy.js` application is very similar in structure to MagnetoCorp's
     A `buy` transaction is submitted with the values `MagnetoCorp`, `00001`...,
     that are used by the `CommercialPaper` smart contract class to transfer
     ownership of commercial paper `00001` to DigiBank.
+    
+    구매 거래는 'CommercialPaper'스마트 계약 클래스에서 'Commercial Paper 00001'의 소유권을 DigiBank로 이전하는 데 사용되는 MagnetoCorp, 00001… 값으로 제출됩니다.
 
 Feel free to examine other files in the `application` directory to understand
 how the application works, and read in detail how `buy.js` is implemented in
 the application [topic](../developapps/application.html).
+
+애플리케이션 디렉토리의 다른 파일을 검토하여 애플리케이션의 작동 방식을 이해하고 애플리케이션 주제에서 buy.js가 구현 된 방법을 자세히 읽으십시오.
+
 
 ## Run as DigiBank
 
@@ -1247,11 +1282,17 @@ similar structure to MagnetoCorp's issue application. Therefore, let’s install
 their dependencies and set up Balaji's wallet so that he can use these
 applications to buy and redeem commercial paper.
 
+commercial paper를 구매하고 사용하는 DigiBank 응용 프로그램은 MagnetoCorp의 발행 응용 프로그램과 매우 유사한 구조를 가지고 있습니다. 따라서 의존성을 설치하고 Balaji의 지갑을 설정하여 이러한 응용 프로그램을 사용하여 commercial paper 를 구입하고 사용할 수 있도록하겠습니다.
+
 Like MagnetoCorp, Digibank must the install the required application packages
 using the `npm install` command, and again, this make take a short time to
 complete.
 
+MagnetoCorp와 마찬가지로 Digibank는 npm install 명령을 사용하여 필요한 응용 프로그램 패키지를 설치해야하며,이 과정을 완료하는 데 약간의 시간이 걸립니다.
+
 In the DigiBank administrator window, install the application dependencies:
+
+DigiBank 관리자 창에서 애플리케이션 종속성을 설치하십시오.
 
 ```
 (digibank admin)$ cd commercial-paper/organization/digibank/application/
@@ -1265,6 +1306,8 @@ added 738 packages in 46.701s
 In Balaji's terminal window, run the `addToWallet.js` program to add identity
 information to his wallet:
 
+Balaji의 터미널 창에서 addToWallet.js 프로그램을 실행하여 지갑에 신원 정보를 추가하십시오.
+
 ```
 (balaji)$ node addToWallet.js
 
@@ -1275,17 +1318,27 @@ The `addToWallet.js` program has added identity information for `balaji`, to his
 wallet, which will be used by `buy.js` and `redeem.js` to submit transactions to
 `PaperNet`.
 
+addToWallet.js 프로그램은 balaji의 신원 정보를 지갑에 추가했으며, 이는 buy.js와 redeem.js가 PaperNet에 거래를 제출하는 데 사용됩니다.
+
 Like Isabella, Balaji can store multiple identities in his wallet, though in our
 example, he only uses one -- `Admin@org.example.com`. His corresponding wallet
 structure `digibank/identity/user/balaji/wallet/Admin@org1.example.com`
 contains is very similar Isabella's -- feel free to examine it.
+
+이사벨라와 마찬가지로 Balaji는 지갑에 여러 ID를 저장할 수 있지만이 예에서는 Admin@org.example.com 중 하나만 사용합니다. 그의 해당 지갑 구조 digibank/identity/user/balaji/wallet/Admin@org1.example.com에 포함 된 Isabella는 매우 유사합니다. 자유롭게 검토하십시오.
+
+
 
 ## Buy application
 
 Balaji can now use `buy.js` to submit a transaction that will transfer ownership
 of MagnetoCorp commercial paper `00001` to DigiBank.
 
+Balaji는 이제 buy.js를 사용하여 MagnetoCorp commercial paper 00001의 소유권을 DigiBank로 이전하는 거래를 제출할 수 있습니다.
+
 Run the `buy` application in Balaji's window:
+
+Balaji의 창에서 구매 애플리케이션을 실행하십시오.
 
 ```
 (balaji)$ node buy.js
@@ -1308,13 +1361,20 @@ commercial paper `00001` within the world state using the `putState()` and
 `getState()` Fabric APIs. As you've seen, the application logic to buy and issue
 commercial paper is very similar, as is the smart contract logic.
 
+Balaji가 DigiBank를 대신하여 MagnetoCorp commercial paper 00001을 성공적으로 구매 한 프로그램 출력을 볼 수 있습니다. buy.js는 putState() 및 getState() Fabric API를 사용하여 전 세계의 commercial paper 00001을 업데이트 한 CommercialPaper 스마트 계약에 정의 된 구매 트랜잭션을 호출했습니다. 보시다시피, commercial paper를 사고 발행하는 애플리케이션 로직은 스마트 계약 로직과 매우 유사합니다.
+
+
 ## Redeem application
 
 The final transaction in the lifecycle of commercial paper `00001` is for
 DigiBank to redeem it with MagnetoCorp. Balaji uses `redeem.js` to submit a
 transaction to perform the redeem logic within the smart contract.
 
+commercial paper 00001 수명주기의 최종 거래는 DigiBank가 MagnetoCorp로 이를 사용하는 것입니다. Balaji는 redeem.js를 사용하여 스마트 계약 내에서 교환 논리를 수행하기 위해 트랜잭션을 제출합니다.
+
 Run the `redeem` transaction in Balaji's window:
+
+Balaji의 창에서 상환 거래를 실행하십시오.
 
 ```
 (balaji)$ node redeem.js
@@ -1335,6 +1395,11 @@ Again, see how the commercial paper 00001 was successfully redeemed when
 Again, it updated commercial paper `00001` within the world state to reflect
 that the ownership returned to MagnetoCorp, the issuer of the paper.
 
+redeem.js가 CommercialPaper에 정의 된 상환 거래를 호출했을 때 상용 용지 00001이 어떻게 사용되었는지 다시 확인하십시오. 다시, 소유권이 논문 발행자 인 MagnetoCorp로 반환되었음을 반영하기 위해 WORLD STATE 내에서 상용 용지 00001을 업데이트했습니다.
+
+
+
+
 ## Further reading
 
 To understand how applications and smart contracts shown in this tutorial work
@@ -1344,8 +1409,9 @@ topic will give you a fuller explanation of the commercial paper scenario, the
 `PaperNet` business network, its actors, and how the applications and smart
 contracts they use work in detail.
 
-Also feel free to use this sample to start creating your own applications and
-smart contracts!
+이 학습서에 표시된 애플리케이션 및 스마트 계약이 어떻게 작동하는지 이해하려면 애플리케이션 개발을 읽는 것이 도움이됩니다. 이 주제에서는 commercial paper 시나리오, PaperNet 비즈니스 네트워크, 해당 행위자 및 이들이 사용하는 응용 프로그램 및 스마트 계약에 대한 자세한 설명을 제공합니다.
+
+또한 이 샘플을 사용하여 자체 애플리케이션 및 스마트 계약 작성을 시작하십시오!
 
 <!--- Licensed under Creative Commons Attribution 4.0 International License
 https://creativecommons.org/licenses/by/4.0/ -->
