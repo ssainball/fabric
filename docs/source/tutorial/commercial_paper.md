@@ -36,33 +36,44 @@ network.
 서로 다른 조직에서 각각 개발자, 최종 사용자 및 관리자 역할을 수행하여 독립적으로 작업 하는 두 조직이 서로 협력하고 Hyperledger Fabric의 상호 합의 된 규칙에 따라 협업 하는 방법을 이해하도록 돕기 위해 다음 단계를 수행합니다.
 
 * [Set up machine](#prerequisites) and [download samples](#download-samples)
+  Machine 설정 및 샘플 다운로드
+
 * [Create a network](#create-network)
-*  Understand the structure of a [smart contract](#smart-contract)
+  네트워크 만들기
+
+* Understand the structure of a [smart contract](#smart-contract)
+  스마트 컨트랙트의 구조 이해
+
 * Work as an organization, [MagnetoCorp](#working-as-magnetocorp), to
   [install](#install-contract) and [instantiate](#instantiate-contract) smart
   contract
+  스마트 계약을 설치하고 인스턴스화하기 위해 MagnetoCorp 조직으로 작업
+
 * Understand the structure of a MagnetoCorp
   [application](#application-structure), including its
   [dependencies](#application-dependencies)
+  의존성을 포함하여 MagnetoCorp 애플리케이션의 구조 이해
+
+
 * Configure and use a [wallet and identities](#wallet)
+  지갑과 아이덴티티 구성 및 사용
+
+
 * Run a MagnetoCorp application to [issue a commercial
   paper](#issue-application)
+  MagnetoCorp 응용 프로그램을 실행하여 상업용 용지를 발행하십시오
+
+
 * Understand how a second organization, [Digibank](#working-as-digibank), uses
   the smart contract in their [applications](#digibank-applications)
+  두 번째 조직인 Digibank가 애플리케이션에서 스마트 계약을 사용하는 방법 이해
+
+
 * As Digibank, [run](#run-as-digibank) applications that
   [buy](#buy-application) and [redeem](#redeem-application) commercial paper
+  Digibank 로서 commercial paper 를 구매하고 사용하는 응용 프로그램을 실행하십시오.
 
 
-
-* Machine 설정 및 샘플 다운로드
-* 네트워크 만들기
-* 스마트 컨트랙트의 구조 이해
-* 스마트 계약을 설치하고 인스턴스화하기 위해 MagnetoCorp 조직으로 작업
-* 의존성을 포함하여 MagnetoCorp 애플리케이션의 구조 이해
-* 지갑과 아이덴티티 구성 및 사용
-* MagnetoCorp 응용 프로그램을 실행하여 상업용 용지를 발행하십시오
-* 두 번째 조직인 Digibank가 애플리케이션에서 스마트 계약을 사용하는 방법 이해
-* Digibank 로서 commercial paper 를 구매하고 사용하는 응용 프로그램을 실행하십시오.
 
 This tutorial has been tested on MacOS and Ubuntu, and should work on other
 Linux distributions. A Windows version is under development.
