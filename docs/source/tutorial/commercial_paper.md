@@ -3,7 +3,7 @@
 **Audience:** Architects, application and smart contract developers,
 administrators 
 
-<span style="color:blue">대상 : 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자</span>
+<span style="color:red"> 대상 : 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자 </span>
 
 This tutorial will show you how to install and use a commercial paper sample
 application and smart contract. It is a task-oriented topic, so it emphasizes
