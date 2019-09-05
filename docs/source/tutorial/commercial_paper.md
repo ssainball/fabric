@@ -75,11 +75,13 @@ network.
 
 * Understand how a second organization, [Digibank](#working-as-digibank), uses
   the smart contract in their [applications](#digibank-applications)
+
   두 번째 조직인 Digibank가 애플리케이션에서 스마트 계약을 사용하는 방법 이해
 
 
 * As Digibank, [run](#run-as-digibank) applications that
   [buy](#buy-application) and [redeem](#redeem-application) commercial paper
+  
   Digibank 로서 commercial paper 를 구매하고 사용하는 응용 프로그램을 실행하십시오.
 
 
