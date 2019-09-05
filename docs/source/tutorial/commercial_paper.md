@@ -3,11 +3,9 @@
 **Audience:** Architects, application and smart contract developers,
 administrators 
 
-<html>
-  <body>
+
     <span style="color:red"> * 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자 * </span>
-  </body>
-</html>
+
 
 
 This tutorial will show you how to install and use a commercial paper sample
