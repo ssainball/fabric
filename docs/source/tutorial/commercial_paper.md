@@ -4,7 +4,7 @@
 administrators 
 
 
-    <span style="color:red"> * 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자 * </span>
+'<span style="color:red"> * 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자 * </span>'
 
 
 
