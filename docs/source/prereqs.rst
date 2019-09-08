@@ -71,6 +71,10 @@ Go Programming Language
 Hyperledger Fabric uses the Go Programming Language for many of its
 components.
 
+``Hyperledger Fabric은 많은 구성 요소에 Go Programming Language를 사용합니다.``
+
+
+
   - `Go <https://golang.org/dl/>`__ version 1.11.x is required.
 
 Given that we will be writing chaincode programs in Go, there are two
@@ -78,6 +82,8 @@ environment variables you will need to set properly; you can make these
 settings permanent by placing them in the appropriate startup file, such
 as your personal ``~/.bashrc`` file if you are using the ``bash`` shell
 under Linux.
+
+``Go에서 체인 코드 프로그램을 작성한다고 가정 할 때 올바르게 설정해야하는 두 가지 환경 변수가 있습니다. Linux에서 "bash" 쉘을 사용하는 경우 개인 "~/.bashrc" 파일과 같은 적절한 시작 파일에 배치하여이 설정을 영구적으로 만들 수 있습니다.``
 
 First, you must set the environment variable ``GOPATH`` to point at the
 Go workspace containing the downloaded Fabric code base, with something like:
