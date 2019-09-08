@@ -87,10 +87,14 @@ Go workspace containing the downloaded Fabric code base, with something like:
   the current Fabric build framework still requires you to set and export that
   variable, and it must contain **only** the single directory name for your Go
   workspace. (This restriction might be removed in a future release.)
+  
+  ``Linux에서 Go의 GOPATH 변수는 콜론으로 구분 된 디렉토리 목록이 될 수 있지만 설정되지 않은 경우 기본값 $ HOME / go를 사용하지만 현재 Fabric 빌드 프레임 워크에서는 해당 변수를 설정하고 내 보내야합니다. Go 작업 공간의 단일 디렉토리 이름 만 포함해야합니다. (이 제한은 다음 릴리스에서 제거 될 수 있습니다.)``
 
 Second, you should (again, in the appropriate startup file) extend your
 command search path to include the Go ``bin`` directory, such as the following
 example for ``bash`` under Linux:
+
+''둘째, (적절한 시작 파일에서) Linux에서 bash에 대한 다음 예제와 같이 Go bin 디렉토리를 포함하도록 명령 검색 경로를 확장해야합니다.''
 
 .. code:: bash
 
@@ -101,6 +105,8 @@ populated later by the Fabric build system with a small number of Go executables
 used by other parts of the build system. So even if you currently have no such
 directory yet, extend your shell search path as above.
 
+``이 디렉토리는 새 Go 작업 공간 설치에 없을 수 있지만 나중에 빌드 시스템의 다른 부분에서 사용하는 소수의 Go 실행 파일로 Fabric 빌드 시스템에 의해 채워집니다. 따라서 현재 그러한 디렉토리가없는 경우에도 위와 같이 쉘 검색 경로를 확장하십시오.``
+
 Node.js Runtime and NPM
 -----------------------
 
@@ -108,11 +114,15 @@ If you will be developing applications for Hyperledger Fabric leveraging the
 Hyperledger Fabric SDK for Node.js, version 8 is supported from 8.9.4 and higher.
 Node.js version 10 is supported from 10.15.3 and higher.
 
+``Node.js 용 Hyperledger Fabric SDK를 활용하여 Hyperledger Fabric 용 애플리케이션을 개발할 경우 버전 8은 8.9.4 이상에서 지원됩니다. Node.js 버전 10은 10.15.3 이상에서 지원됩니다.``
+
   - `Node.js <https://nodejs.org/en/download/>`__ download
 
 .. note:: Installing Node.js will also install NPM, however it is recommended
           that you confirm the version of NPM installed. You can upgrade
           the ``npm`` tool with the following command:
+	  
+	  ``Node.js를 설치하면 NPM도 설치되지만 설치된 NPM 버전을 확인하는 것이 좋습니다. 다음 명령을 사용하여 npm 도구를 업그레이드 할 수 있습니다.``
 
 .. code:: bash
 
@@ -123,9 +133,13 @@ Python
 
 .. note:: The following applies to Ubuntu 16.04 users only.
 
+``다음은 Ubuntu 16.04 사용자에게만 해당됩니다.``
+
 By default Ubuntu 16.04 comes with Python 3.5.1 installed as the ``python3`` binary.
 The Fabric Node.js SDK requires an iteration of Python 2.7 in order for ``npm install``
 operations to complete successfully.  Retrieve the 2.7 version with the following command:
+
+``기본적으로 Ubuntu 16.04는 Python 3.5.1이 python3 바이너리로 설치되어 제공됩니다. npm 설치 작업을 성공적으로 완료하려면 Fabric Node.js SDK에 Python 2.7을 반복해야합니다. 다음 명령으로 2.7 버전을 검색하십시오.``
 
 .. code:: bash
 
@@ -147,11 +161,15 @@ Docker Quickstart Terminal which uses `Git Bash
 <https://git-scm.com/downloads>`__ and provides a better alternative
 to the built-in Windows shell.
 
+``Windows 7에서 개발하는 경우 Git Bash를 사용하고 내장 Windows 쉘에 대한 더 나은 대안을 제공하는 Docker 빠른 시작 터미널 내에서 작업하고 싶을 것입니다.``
+
 However experience has shown this to be a poor development environment
 with limited functionality. It is suitable to run Docker based
 scenarios, such as :doc:`getting_started`, but you may have
 difficulties with operations involving the ``make`` and ``docker``
 commands.
+
+``그러나 경험에 의하면이 기능은 기능이 제한적인 개발 환경이 열악합니다. : doc :`getting_started`와 같은 Docker 기반 시나리오를 실행하는 것이 적합하지만 make 및 docker 명령과 관련된 작업에는 문제가있을 수 있습니다.``
 
 On Windows 10 you should use the native Docker distribution and you
 may use the Windows PowerShell. However, for the ``binaries``
@@ -159,7 +177,11 @@ command to succeed you will still need to have the ``uname`` command
 available. You can get it as part of Git but beware that only the
 64bit version is supported.
 
+``Windows 10에서는 기본 Docker 배포를 사용해야하며 Windows PowerShell을 사용할 수 있습니다. 그러나 바이너리 명령이 성공하려면 uname 명령을 계속 사용할 수 있어야합니다. Git의 일부로 얻을 수 있지만 64 비트 버전 만 지원됩니다.``
+
 Before running any ``git clone`` commands, run the following commands:
+
+``다음 명령으로 할 수 있습니다.``
 
 ::
 
@@ -168,6 +190,8 @@ Before running any ``git clone`` commands, run the following commands:
 
 You can check the setting of these parameters with the following commands:
 
+``다음 명령으로 이러한 매개 변수의 설정을 확인할 수 있습니다.``
+
 ::
 
     git config --get core.autocrlf
@@ -175,14 +199,20 @@ You can check the setting of these parameters with the following commands:
 
 These need to be ``false`` and ``true`` respectively.
 
+``이들은 각각 거짓과 참이어야합니다.``
+
 The ``curl`` command that comes with Git and Docker Toolbox is old and
 does not handle properly the redirect used in
 :doc:`getting_started`. Make sure you install and use a newer version
 from the `cURL downloads page <https://curl.haxx.se/download.html>`__
 
+``Git 및 Docker Toolbox와 함께 제공되는 curl 명령은 오래되었으며 : doc :`getting_started`에 사용 된 리디렉션을 올바르게 처리하지 못합니다. cURL 다운로드 페이지에서 최신 버전을 설치하고 사용해야합니다``
+
 For Node.js you also need the necessary Visual Studio C++ Build Tools
 which are freely available and can be installed with the following
 command:
+
+``Node.js의 경우 무료로 제공되며 다음 명령으로 설치할 수있는 필수 Visual Studio C ++ 빌드 도구가 필요합니다.``
 
 .. code:: bash
 
