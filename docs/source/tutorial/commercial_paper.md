@@ -241,15 +241,19 @@ example:
 
 * to run applications on behalf of Isabella and Balaji who will trade commercial
   paper with each other
+
+  ``Isabella와 Balaji를 대신하여 상업용 용지를 거래하는 응용 프로그램을 실행``
+
+
 * to issue commands to on behalf of administrators from MagnetoCorp and
   DigiBank, including installing and instantiating smart contracts
+  
+``스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 대신하여 명령을 발행``
+
+
 * to show peer, orderer and CA log output
 
-``
-* Isabella와 Balaji를 대신하여 상업용 용지를 거래하는 응용 프로그램을 실행
-* 스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 대신하여 명령을 발행
-* 피어, 주문자 및 CA 로그 출력을 표시
-``
+``피어, 주문자 및 CA 로그 출력을 표시``
 
 We'll make it clear when you should run a command from particular command
 window; for example:
