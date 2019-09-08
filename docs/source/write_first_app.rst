@@ -14,7 +14,7 @@ Writing Your First Application
           :doc:`developapps/developing_applications` section or the
           :doc:`tutorial/commercial_paper`.
           
-          본 자습서는 패브릭 어플리케이션의 소개 역할을 하며 간단한 스마트 계약과 어플리케이션을 사용한다는 점도 주목할 가치가 있습니다. 패브릭 애플리케이션 및 스마트 계약에 대한 자세한 내용은 애플리케이션 개발 섹션 또는 상용 문서 튜토리얼을 참조하십시오.
+          ``본 자습서는 패브릭 어플리케이션의 소개 역할을 하며 간단한 스마트 계약과 어플리케이션을 사용한다는 점도 주목할 가치가 있습니다. 패브릭 애플리케이션 및 스마트 계약에 대한 자세한 내용은 애플리케이션 개발 섹션 또는 상용 문서 튜토리얼을 참조하십시오.``
 
 In this tutorial we'll be looking at a handful of sample programs to see how
 Fabric apps work. These applications and the smart contracts they use are
