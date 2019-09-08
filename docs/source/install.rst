@@ -53,6 +53,7 @@ command that follows will perform the following steps:
 
 
 
+```
 
 #. 필요한 경우 hyperledger / fabric-samples 저장소를 복제하십시오.
 
@@ -62,6 +63,7 @@ command that follows will perform the following steps:
 
 #. 지정된 버전의 Hyperledger Fabric 도커 이미지 다운로드
 
+```
 
 
 Once you are ready, and in the directory into which you will install the
