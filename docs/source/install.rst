@@ -53,7 +53,7 @@ command that follows will perform the following steps:
 
 
 
-```
+`
 #. 필요한 경우 hyperledger / fabric-samples 저장소를 복제하십시오.
 
 #. 적절한 버전 태그를 확인하십시오.
@@ -61,7 +61,7 @@ command that follows will perform the following steps:
 #. 패브릭 샘플의 / bin 및 / config 디렉토리에 지정된 버전의 Hyperledger Fabric 플랫폼 별 바이너리 및 구성 파일을 설치하십시오.
 
 #. 지정된 버전의 Hyperledger Fabric 도커 이미지 다운로드
-```
+`
 
 
 Once you are ready, and in the directory into which you will install the
