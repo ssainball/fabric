@@ -6,6 +6,8 @@ you have all the prerequisites below installed on the platform(s)
 on which you'll be developing blockchain applications and/or operating
 Hyperledger Fabric.
 
+시작하기 전에 아직 그렇게하지 않은 경우 블록 체인 응용 프로그램을 개발하거나 Hyperledger Fabric을 운영 할 플랫폼에 아래의 모든 필수 구성 요소가 설치되어 있는지 확인할 수 있습니다.
+
 Install cURL
 ------------
 
@@ -14,14 +16,20 @@ Download the latest version of the `cURL
 installed or if you get errors running the curl commands from the
 documentation.
 
+최신 버전의 cURL 도구가 설치되어 있지 않거나 문서에서 curl 명령을 실행하는 중에 오류가 발생하면 다운로드하십시오.
+
 .. note:: If you're on Windows please see the specific note on `Windows
    extras`_ below.
+   
+   Windows를 사용하는 경우 아래의 'Windows extras' 에 대한 특정 참고 사항을 참조하십시오.
 
 Docker and Docker Compose
 -------------------------
 
 You will need the following installed on the platform on which you will be
 operating, or developing on (or for), Hyperledger Fabric:
+
+Hyperledger Fabric을 운영하거나 개발할 플랫폼에 다음이 설치되어 있어야합니다.
 
   - MacOSX, \*nix, or Windows 10: `Docker <https://www.docker.com/get-docker>`__
     Docker version 17.06.2-ce or greater is required.
