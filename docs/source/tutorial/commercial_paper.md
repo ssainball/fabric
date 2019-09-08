@@ -13,13 +13,13 @@ procedures above concepts. When you’d like to understand the concepts in more
 detail, you can read the
 [Developing Applications](../developapps/developing_applications.html) topic.
 
-이 학습서에서는 commercial paper sample 애플리케이션 및 스마트 계약을 설치하고 사용하는 방법을 보여줍니다. 작업 중심의 주제이므로 개념 이상의 절차를 강조합니다. 개념을 보다 자세히 이해하려면 Developing Applications 주제를 읽으십시오.
+``이 학습서에서는 commercial paper sample 애플리케이션 및 스마트 계약을 설치하고 사용하는 방법을 보여줍니다. 작업 중심의 주제이므로 개념 이상의 절차를 강조합니다. 개념을 보다 자세히 이해하려면 Developing Applications 주제를 읽으십시오.``
 
 ![commercialpaper.tutorial](./commercial_paper.diagram.1.png) *In this tutorial
 two organizations, MagnetoCorp and DigiBank, trade commercial paper with each
 other using PaperNet, a Hyperledger Fabric blockchain network.*
 
-이 자습서에서는 MagnetoCorp와 DigiBank라는 두 조직이 Hyperledger Fabric 블록체인 네트워크 인 PaperNet을 사용하여 commercial paper 를 서로 교환합니다.
+``이 자습서에서는 MagnetoCorp와 DigiBank라는 두 조직이 Hyperledger Fabric 블록체인 네트워크 인 PaperNet을 사용하여 commercial paper 를 서로 교환합니다.``
 
 Once you've set up a basic network, you'll act as Isabella, an employee of
 MagnetoCorp, who will issue a commercial paper on its behalf. You'll then switch
@@ -27,7 +27,7 @@ hats to take the role of Balaji, an employee of DigiBank, who will buy this
 commercial paper, hold it for a period of time, and then redeem it with
 MagnetoCorp for a small profit.
 
-기본 네트워크를 설정하면 MagnetoCorp의 직원 인 Isabella의 역할을 수행하여 이를 대신 하여 commercial paper 를 발행합니다. 그런 다음 모자를 전환하여 DigiBank의 직원 인 Balaji 가 이 commercial paper 를 구입하고 일정 기간 동안 보유한 다음 MagnetoCorp 로 소량의 이익을 위해 교환하십시오.
+``기본 네트워크를 설정하면 MagnetoCorp의 직원 인 Isabella의 역할을 수행하여 이를 대신 하여 commercial paper 를 발행합니다. 그런 다음 모자를 전환하여 DigiBank의 직원 인 Balaji 가 이 commercial paper 를 구입하고 일정 기간 동안 보유한 다음 MagnetoCorp 로 소량의 이익을 위해 교환하십시오.
 
 You'll act as an developer, end user, and administrator, each in different
 organizations, performing the following steps designed to help you understand
