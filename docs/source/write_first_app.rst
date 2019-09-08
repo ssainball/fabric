@@ -39,7 +39,7 @@ detail in section :doc:`/developapps/smartcontract`.
 
 We’ll go through three principle steps:
 
-다음 세 가지 기본 단계를 거친다.
+다음 세 가지 기본 단계를 거칩니다.
 
 
 
@@ -364,7 +364,7 @@ ledger:
 
 The output should look like this:
 
-출력은 다음과 같다.
+출력은 다음과 같습니다.
 
 
 
