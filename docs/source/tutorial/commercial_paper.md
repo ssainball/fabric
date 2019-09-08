@@ -3,7 +3,7 @@
 **Audience:** Architects, application and smart contract developers,
 administrators 
 
-대상 : 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자
+``대상 : 설계자, 애플리케이션 및 스마트 계약 개발자, 관리자``
 
 <span style="color:red"> *some emphasized markdown text*</span>
 
