@@ -15,7 +15,7 @@ Hyperledger Fabric.
           Please visit the :doc:`prereqs` if you haven't previously installed
           it.
 	  
-	  ''Windows에서 실행중인 경우 터미널 명령에 Docker Quickstart Termianl 을 사용하려고합니다. 이전에 설치하지 않은 경우 :doc:`prereqs`를 방문하십시오.''
+	  ``Windows에서 실행중인 경우 터미널 명령에 Docker Quickstart Termianl 을 사용하려고합니다. 이전에 설치하지 않은 경우 :doc:`prereqs`를 방문하십시오.``
 
           If you are using Docker Toolbox on Windows 7 or macOS, you
           will need to use a location under ``C:\Users`` (Windows 7) or
@@ -43,16 +43,20 @@ command that follows will perform the following steps:
 ``패브릭 샘플 저장소를 배치 할 시스템의 위치를 판별하고 터미널 창에 해당 디렉토리를 입력하십시오. 다음 다음 단계를 수행합니다.``
 
 #. If needed, clone the `hyperledger/fabric-samples <https://github.com/hyperledger/fabric-samples>`_ repository
+
 ``필요한 경우 hyperledger / fabric-samples 저장소를 복제하십시오.``
 
 #. Checkout the appropriate version tag
+
 ``적절한 버전 태그를 확인하십시오.``
 
 #. Install the Hyperledger Fabric platform-specific binaries and config files
    for the version specified into the /bin and /config directories of fabric-samples
+
 ``패브릭 샘플의 / bin 및 / config 디렉토리에 지정된 버전의 Hyperledger Fabric 플랫폼 별 바이너리 및 구성 파일을 설치하십시오.``
 
 #. Download the Hyperledger Fabric docker images for the version specified
+
 ``지정된 버전의 Hyperledger Fabric 도커 이미지 다운로드``
 
 Once you are ready, and in the directory into which you will install the
