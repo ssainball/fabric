@@ -248,12 +248,12 @@ example:
 * to issue commands to on behalf of administrators from MagnetoCorp and
   DigiBank, including installing and instantiating smart contracts
   
-``스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 대신하여 명령을 발행``
+  ``스마트 계약 설치 및 인스턴스화를 포함하여 MagnetoCorp 및 DigiBank의 관리자를 대신하여 명령을 발행``
 
 
 * to show peer, orderer and CA log output
 
-``피어, 주문자 및 CA 로그 출력을 표시``
+  ``피어, 주문자 및 CA 로그 출력을 표시``
 
 We'll make it clear when you should run a command from particular command
 window; for example:
@@ -364,9 +364,22 @@ horizontally scroll to locate the information):
 ``이러한 컨테이너를 기본 네트워크에 매핑 할 수 있는지 확인하십시오 (정보를 찾으려면 가로로 스크롤해야 할 수도 있음).``
 
 * A peer `peer0.org1.example.com` is running in container `ada3d078989b`
+
+  ``피어 peer0.org1.example.com이 컨테이너 ada3d078989b에서 실행 중입니다``
+
+
 * An orderer `orderer.example.com` is running in container `1fa1fd107bfb`
+
+  ``orderer.example.com 주문자가 컨테이너 1fa1fd107bfb에서 실행 중입니다``  
+
 * A CouchDB database `couchdb` is running in container `53fe614274f7`
+
+  ``CouchDB 데이터베이스 couchdb가 컨테이너 53fe614274f7에서 실행 중입니다``
+
+
 * A CA `ca.example.com` is running in container `469201085a20`
+
+  ``CA ca.example.com이 컨테이너 469201085a20에서 실행 중입니다``
 
 
 These containers all form a [docker network](https://docs.docker.com/network/)
