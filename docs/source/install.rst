@@ -51,7 +51,8 @@ command that follows will perform the following steps:
 
 #. Download the Hyperledger Fabric docker images for the version specified
 
-#. 필요한 경우 hyperledger / fabric-samples 저장소를 복제하십시오.
+
+``#. 필요한 경우 hyperledger / fabric-samples 저장소를 복제하십시오.
 
 #. 적절한 버전 태그를 확인하십시오.
 
