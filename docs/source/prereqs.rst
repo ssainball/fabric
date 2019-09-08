@@ -6,7 +6,7 @@ you have all the prerequisites below installed on the platform(s)
 on which you'll be developing blockchain applications and/or operating
 Hyperledger Fabric.
 
-시작하기 전에 아직 그렇게하지 않은 경우 블록 체인 응용 프로그램을 개발하거나 Hyperledger Fabric을 운영 할 플랫폼에 아래의 모든 필수 구성 요소가 설치되어 있는지 확인할 수 있습니다.
+``시작하기 전에 아직 그렇게하지 않은 경우 블록 체인 응용 프로그램을 개발하거나 Hyperledger Fabric을 운영 할 플랫폼에 아래의 모든 필수 구성 요소가 설치되어 있는지 확인할 수 있습니다.``
 
 Install cURL
 ------------
@@ -190,14 +190,14 @@ command:
 
 See the `NPM windows-build-tools page
 
-"자세한 내용은 NPM windows-build-tools 페이지를 참조하십시오."
+``자세한 내용은 NPM windows-build-tools 페이지를 참조하십시오.``
 <https://www.npmjs.com/package/windows-build-tools>`__ for more
 details.
 
 Once this is done, you should also install the NPM GRPC module with the
 following command:
 
-"이 작업이 완료되면 다음 명령을 사용하여 NPM GRPC 모듈도 설치해야합니다."
+``이 작업이 완료되면 다음 명령을 사용하여 NPM GRPC 모듈도 설치해야합니다.``
 
 .. code:: bash
 
@@ -206,13 +206,13 @@ following command:
 Your environment should now be ready to go through the
 :doc:`getting_started` samples and tutorials.
 
-"이제 환경은 : doc :`getting_started` 샘플 및 자습서를 진행할 준비가 되었습니다."
+``이제 환경은 : doc :`getting_started` 샘플 및 자습서를 진행할 준비가 되었습니다.``
 
 .. note:: If you have questions not addressed by this documentation, or run into
           issues with any of the tutorials, please visit the :doc:`questions`
           page for some tips on where to find additional help.
 	  
-	  "이 문서에서 다루지 않은 질문이 있거나 튜토리얼에 문제가있는 경우 : doc :`questions` 페이지를 방문하여 추가 도움을 얻을 수있는 위치에 대한 팁을 얻으십시오."
+	  ``이 문서에서 다루지 않은 질문이 있거나 튜토리얼에 문제가있는 경우 : doc :`questions` 페이지를 방문하여 추가 도움을 얻을 수있는 위치에 대한 팁을 얻으십시오.``
 
 .. Licensed under Creative Commons Attribution 4.0 International License
    https://creativecommons.org/licenses/by/4.0/
