@@ -16,12 +16,12 @@ Download the latest version of the `cURL
 installed or if you get errors running the curl commands from the
 documentation.
 
-최신 버전의 cURL 도구가 설치되어 있지 않거나 문서에서 curl 명령을 실행하는 중에 오류가 발생하면 다운로드하십시오.
+``최신 버전의 cURL 도구가 설치되어 있지 않거나 문서에서 curl 명령을 실행하는 중에 오류가 발생하면 다운로드하십시오.``
 
 .. note:: If you're on Windows please see the specific note on `Windows
    extras`_ below.
    
-   Windows를 사용하는 경우 아래의 'Windows extras' 에 대한 특정 참고 사항을 참조하십시오.
+   ``Windows를 사용하는 경우 아래의 'Windows extras' 에 대한 특정 참고 사항을 참조하십시오.``
 
 Docker and Docker Compose
 -------------------------
@@ -29,7 +29,7 @@ Docker and Docker Compose
 You will need the following installed on the platform on which you will be
 operating, or developing on (or for), Hyperledger Fabric:
 
-Hyperledger Fabric을 운영하거나 개발할 플랫폼에 다음이 설치되어 있어야합니다.
+``Hyperledger Fabric을 운영하거나 개발할 플랫폼에 다음이 설치되어 있어야합니다.``
 
   - MacOSX, \*nix, or Windows 10: `Docker <https://www.docker.com/get-docker>`__
     Docker version 17.06.2-ce or greater is required.
@@ -40,6 +40,8 @@ Hyperledger Fabric을 운영하거나 개발할 플랫폼에 다음이 설치되
 You can check the version of Docker you have installed with the following
 command from a terminal prompt:
 
+``터미널 프롬프트에서 다음 명령으로 설치 한 Docker 버전을 확인할 수 있습니다.``
+
 .. code:: bash
 
   docker --version
@@ -49,9 +51,13 @@ command from a terminal prompt:
           should check that you have Docker Compose version 1.14.0 or greater
           installed. If not, we recommend that you install a more recent
           version of Docker.
+	  
+	  ``Mac 또는 Windows 용 Docker 또는 Docker Toolbox를 설치하면 Docker Compose도 설치됩니다. Docker가 이미 설치되어 있으면 Docker Compose 버전 1.14.0 이상이 설치되어 있는지 확인해야합니다. 그렇지 않은 경우 최신 버전의 Docker를 설치하는 것이 좋습니다.``
 
 You can check the version of Docker Compose you have installed with the
 following command from a terminal prompt:
+
+``터미널 프롬프트에서 다음 명령으로 설치 한 Docker Compose의 버전을 확인할 수 있습니다.``
 
 .. code:: bash
 
