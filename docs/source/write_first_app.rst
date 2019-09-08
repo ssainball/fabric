@@ -4,6 +4,8 @@ Writing Your First Application
 .. note:: If you're not yet familiar with the fundamental architecture of a
           Fabric network, you may want to visit the :doc:`key_concepts` section
           prior to continuing.
+          
+          `패브릭 네트워크의 기본 아키텍처에 아직 익숙하지 않은 경우 계속하기 전에 Key Concepts 섹션을 방문하십시오. `
 
           It is also worth noting that this tutorial serves as an introduction
           to Fabric applications and uses simple smart contracts and
