@@ -218,7 +218,7 @@ the ``fabcar/javascript`` directory. Let's take a look at what's inside:
 
 You should see the following:
 
-다음과 같은 화면을 볼 수 있습니다:
+``다음과 같은 화면을 볼 수 있습니다:``
 
 
 
@@ -231,14 +231,14 @@ There are files for other program languages, for example in the
 ``fabcar/typescript`` directory. You can read these once you've used the
 JavaScript example -- the principles are the same.
 
-예를 들어 fabcar/typescript 디렉토리에 다른 프로그램 언어에 대한 파일이 있습니다. JavaScript 예를 사용한 후에는 이러한 내용을 읽을 수 있으며, 원칙은 동일합니다.
+``예를 들어 fabcar/typescript 디렉토리에 다른 프로그램 언어에 대한 파일이 있습니다. JavaScript 예를 사용한 후에는 이러한 내용을 읽을 수 있으며, 원칙은 동일합니다.``
 
 
 
 If you are using Mac OS and running Mojave, you will need to `install Xcode
 <./tutorial/installxcode.html>`_.
 
-Mac OS를 사용하고 Mojave를 실행하고 있다면 Xcode를 설치해야 합니다.
+``Mac OS를 사용하고 Mojave를 실행하고 있다면 Xcode를 설치해야 합니다.``
 
 
 
@@ -259,20 +259,20 @@ locally and the public key is then sent to the CA which returns an encoded
 certificate for use by the application. These three credentials are then stored
 in the wallet, allowing us to act as an administrator for the CA.
 
-네트워크를 만들 때, admin 사용자가 CA(인증 기관)의 등록자로 생성되었습니다. 우리의 첫 번째 단계는 enroll.js 프로그램을 사용하여 관리자를 위한 개인키, 공개키, X.509 인증서를 생성하는 것입니다. 이 프로세스는 CSR(인증서 서명 요청)을 사용합니다. 즉, 개인키 및 공용키가 먼저 로컬에서 생성되고 그 후에 공용키가 CA로 전송되어 응용 프로그램에서 사용하기 위해 인코딩된 인증서를 반환합니다. 그러면 이 세 가지 자격 증명이 지갑에 저장되어 우리가 CA의 관리자 역할을 수행 할 수 있습니다.
+``네트워크를 만들 때, admin 사용자가 CA(인증 기관)의 등록자로 생성되었습니다. 우리의 첫 번째 단계는 enroll.js 프로그램을 사용하여 관리자를 위한 개인키, 공개키, X.509 인증서를 생성하는 것입니다. 이 프로세스는 CSR(인증서 서명 요청)을 사용합니다. 즉, 개인키 및 공용키가 먼저 로컬에서 생성되고 그 후에 공용키가 CA로 전송되어 응용 프로그램에서 사용하기 위해 인코딩된 인증서를 반환합니다. 그러면 이 세 가지 자격 증명이 지갑에 저장되어 우리가 CA의 관리자 역할을 수행 할 수 있습니다.``
 
 
 
 We will subsequently register and enroll a new application user which will be
 used by our application to interact with the blockchain.
 
-이후 우리는 새로운 애플리케이션 사용자 등록 및 권한 부여를 할 것이며, 이 사용자는 우리의 애플리케이션에서 블록체인과의 상호작용을 위해 사용될 것입니다.
+``이후 우리는 새로운 애플리케이션 사용자 등록 및 권한 부여를 할 것이며, 이 사용자는 우리의 애플리케이션에서 블록체인과의 상호작용을 위해 사용될 것입니다.``
 
 
 
 Let's enroll user ``admin``:
 
-사용자 관리자를 등록하십시오.
+``사용자 관리자를 등록하십시오.``
 
 
 
@@ -283,7 +283,7 @@ Let's enroll user ``admin``:
 This command has stored the CA administrator's credentials in the ``wallet``
 directory.
 
-이 명령은 CA 관리자의 자격증명을 wallet 디렉토리에 저장했습니다.
+``이 명령은 CA 관리자의 자격증명을 wallet 디렉토리에 저장했습니다.``
 
 
 
@@ -293,7 +293,7 @@ Register and enroll ``user1``
 Now that we have the administrator's credentials in a wallet, we can enroll a
 new user --- ``user1`` --- which will be used to query and update the ledger:
 
-이제 우리는 관리자 자격 증명을 지갑에 가지고 있으므로, 새로운 사용자인 user1을 등록할 수 있으며, user1은 원장을 쿼리하고 업데이트하는 데 사용될 것입니다.
+``이제 우리는 관리자 자격 증명을 지갑에 가지고 있으므로, 새로운 사용자인 user1을 등록할 수 있으며, user1은 원장을 쿼리하고 업데이트하는 데 사용될 것입니다.``
 
 
 
@@ -306,13 +306,13 @@ store its credentials alongside those of ``admin`` in the wallet. We now have
 identities for two separate users --- ``admin`` and ``user1`` --- and these are
 used by our application.
 
-관리자 등록과 마찬가지로이 프로그램은 CSR을 사용하여 user1을 등록하고 관리자의 자격 증명과 함께 지갑에 자격 증명을 저장합니다. 이제 두 명의 개별 사용자 (admin 및 user1)에 대한 ID가 있으며 이들은 응용 프로그램에서 사용됩니다.
+``관리자 등록과 마찬가지로이 프로그램은 CSR을 사용하여 user1을 등록하고 관리자의 자격 증명과 함께 지갑에 자격 증명을 저장합니다. 이제 두 명의 개별 사용자 (admin 및 user1)에 대한 ID가 있으며 이들은 응용 프로그램에서 사용됩니다.``
 
 
 
 Time to interact with the ledger...
 
-원장과 교감할 시간...
+``원장과 교감할 시간...``
 
 
 
@@ -323,13 +323,13 @@ Each peer in a blockchain network hosts a copy of the ledger, and an application
 program can query the ledger by invoking a smart contract which queries the most
 recent value of the ledger and returns it to the application.
 
-블록 체인 네트워크의 각 피어는 원장의 사본을 호스팅하며 응용 프로그램은 가장 최근의 원장 가치를 쿼리하고이를 응용 프로그램으로 반환하는 스마트 계약을 호출하여 원장을 쿼리 할 수 있습니다.
+``블록 체인 네트워크의 각 피어는 원장의 사본을 호스팅하며 응용 프로그램은 가장 최근의 원장 가치를 쿼리하고이를 응용 프로그램으로 반환하는 스마트 계약을 호출하여 원장을 쿼리 할 수 있습니다.``
 
 
 
 Here is a simplified representation of how a query works:
 
-다음은 쿼리의 작동 방식을 단순화한 것입니다.
+``다음은 쿼리의 작동 방식을 단순화한 것입니다.``
 
 
 
@@ -345,7 +345,7 @@ are modeled as JSON data. This can be very helpful when looking for all assets
 that match certain keywords with particular values; all cars with a particular
 owner, for example.
 
-응용 프로그램은 쿼리를 사용하여 원장에서 데이터를 읽습니다. 가장 일반적인 쿼리에는 원장의 현재 데이터 값인 'world state'가 포함됩니다. world state 는 일련의 키-값 쌍으로 표시되며 응용 프로그램은 단일 키 또는 여러 키에 대한 데이터를 쿼리 할 수 있습니다. 또한 원장 world state 는 키-값이 JSON 데이터로 모델링 될 때 복잡한 쿼리를 지원하는 CouchDB와 같은 데이터베이스를 사용하도록 구성 할 수 있습니다. 이는 특정 키워드가 특정 값과 일치하는 모든 자산을 찾을 때 매우 유용합니다. 예를 들어 특정 소유자의 자동차 등을 검색 할 수 있습니다.
+``응용 프로그램은 쿼리를 사용하여 원장에서 데이터를 읽습니다. 가장 일반적인 쿼리에는 원장의 현재 데이터 값인 'world state'가 포함됩니다. world state 는 일련의 키-값 쌍으로 표시되며 응용 프로그램은 단일 키 또는 여러 키에 대한 데이터를 쿼리 할 수 있습니다. 또한 원장 world state 는 키-값이 JSON 데이터로 모델링 될 때 복잡한 쿼리를 지원하는 CouchDB와 같은 데이터베이스를 사용하도록 구성 할 수 있습니다. 이는 특정 키워드가 특정 값과 일치하는 모든 자산을 찾을 때 매우 유용합니다. 예를 들어 특정 소유자의 자동차 등을 검색 할 수 있습니다.``
 
 
 
@@ -353,7 +353,7 @@ First, let's run our ``query.js`` program to return a listing of all the cars on
 the ledger. This program uses our second identity -- ``user1`` -- to access the
 ledger:
 
-먼저, query.js 프로그램을 실행하여 원장에 있는 모든 차들의 목록을 반환하십시오. 이 프로그램은 두 번째 ID인 user1을 사용하여 원장에 액세스 합니다:
+``먼저, query.js 프로그램을 실행하여 원장에 있는 모든 차들의 목록을 반환하십시오. 이 프로그램은 두 번째 ID인 user1을 사용하여 원장에 액세스 합니다:``
 
 
 
@@ -363,7 +363,7 @@ ledger:
 
 The output should look like this:
 
-출력은 다음과 같습니다.
+``출력은 다음과 같습니다.``
 
 
 
@@ -385,7 +385,7 @@ The output should look like this:
 Let's take a closer look at this program. Use an editor (e.g. atom or visual
 studio) and open ``query.js``.
 
-이 프로그램을 자세히 살펴 보겠습니다. 편집기 (예 : atom 또는 visual studio)를 사용하고 query.js를 엽니다.
+``이 프로그램을 자세히 살펴 보겠습니다. 편집기 (예 : atom 또는 visual studio)를 사용하고 query.js를 엽니다.``
 
 
 
@@ -394,7 +394,7 @@ The application starts by bringing in scope two key classes from the
 will be used to locate the ``user1`` identity in the wallet, and use it to
 connect to the network:
 
-애플리케이션은 패브릭 네트워크 모듈에서 두 가지 핵심 클래스를 가져 와서 시작합니다. FileSystemWallet 및 Gateway. 이 클래스는 전자 지갑에서 user1 ID를 찾고 네트워크에 연결하는 데 사용됩니다.
+``애플리케이션은 패브릭 네트워크 모듈에서 두 가지 핵심 클래스를 가져 와서 시작합니다. FileSystemWallet 및 Gateway. 이 클래스는 전자 지갑에서 user1 ID를 찾고 네트워크에 연결하는 데 사용됩니다.``
 
 
 
@@ -404,7 +404,7 @@ connect to the network:
 
 The application connects to the network using a gateway:
 
-응용 프로그램은 Gateway 를 사용하여 네트워크에 연결합니다.
+``응용 프로그램은 Gateway 를 사용하여 네트워크에 연결합니다.``
 
 
 
@@ -418,7 +418,7 @@ the network. ``ccp`` describes the network that the gateway will access with the
 identity ``user1`` from ``wallet``. See how the ``ccp`` has been loaded from
 ``../../basic-network/connection.json`` and parsed as a JSON file:
 
-이 코드는 새 게이트웨이를 만든 다음 이를 사용하여 응용 프로그램을 네트워크에 연결합니다. ccp는 게이트웨이가 월렛에서 ID user1으로 gateway가 액세스 할 네트워크를 설명합니다. ccp가 ../../basic-network/connection.json에서 로드되어 JSON 파일로 구문 분석 된 방법을 참조하십시오.
+``이 코드는 새 게이트웨이를 만든 다음 이를 사용하여 응용 프로그램을 네트워크에 연결합니다. ccp는 게이트웨이가 월렛에서 ID user1으로 gateway가 액세스 할 네트워크를 설명합니다. ccp가 ../../basic-network/connection.json에서 로드되어 JSON 파일로 구문 분석 된 방법을 참조하십시오.``
 
 
 
@@ -432,14 +432,14 @@ If you'd like to understand more about the structure of a connection profile,
 and how it defines the network, check out
 `the connection profile topic <./developapps/connectionprofile.html>`_.
 
-connection profile 의 구조 및 네트워크를 정의하는 방법에 대한 자세한 내용을 보려면 connection profile topic 을 확인하십시오.
+``connection profile 의 구조 및 네트워크를 정의하는 방법에 대한 자세한 내용을 보려면 connection profile topic 을 확인하십시오.``
 
 
 A network can be divided into multiple channels, and the next important line of
 code connects the application to a particular channel within the network,
 ``mychannel``:
 
-네트워크는 여러 채널로 나눌 수 있으며 다음으로 중요한 코드는 애플리케이션을 네트워크 내의 특정 채널 인 mychannel에 연결합니다.
+``네트워크는 여러 채널로 나눌 수 있으며 다음으로 중요한 코드는 애플리케이션을 네트워크 내의 특정 채널 인 mychannel에 연결합니다.``
 
 
 
@@ -451,7 +451,7 @@ code connects the application to a particular channel within the network,
 Within this channel, we can access the smart contract ``fabcar`` to interact
 with the ledger:
 
-이 채널 내에서 스마트 계약 fabcar에 액세스하여 원장과 상호 작용할 수 있습니다.
+``이 채널 내에서 스마트 계약 fabcar에 액세스하여 원장과 상호 작용할 수 있습니다.``
 
 
 
@@ -463,7 +463,7 @@ Within ``fabcar`` there are many different **transactions**, and our application
 initially uses the ``queryAllCars`` transaction to access the ledger world state
 data:
 
-fabcar에는 여러 가지 다른 트랜잭션이 있으며, 애플리케이션은 처음에 queryAllCars 트랜잭션을 사용하여 원장 world state 데이터에 액세스합니다.
+``fabcar에는 여러 가지 다른 트랜잭션이 있으며, 애플리케이션은 처음에 queryAllCars 트랜잭션을 사용하여 원장 world state 데이터에 액세스합니다.``
 
 
 
@@ -478,7 +478,7 @@ smart contract queries all the cars on the peer's copy of the ledger and returns
 the result to the application. This interaction does not result in an update the
 ledger.
 
-evaluateTransaction method는 블록체인 네트워크에서 스마트 계약과 가장 간단한 상호 작용 중 하나를 나타냅니다. 연결 프로파일에 정의 된 피어를 선택하여 요청을 보내 평가합니다. 스마트 계약은 피어의 원장 사본에있는 모든 자동차를 쿼리하고 결과를 응용 프로그램에 반환합니다. 이 상호 작용으로 인해 원장이 업데이트되지 않습니다.
+``evaluateTransaction method는 블록체인 네트워크에서 스마트 계약과 가장 간단한 상호 작용 중 하나를 나타냅니다. 연결 프로파일에 정의 된 피어를 선택하여 요청을 보내 평가합니다. 스마트 계약은 피어의 원장 사본에있는 모든 자동차를 쿼리하고 결과를 응용 프로그램에 반환합니다. 이 상호 작용으로 인해 원장이 업데이트되지 않습니다.``
 
 
 
@@ -489,13 +489,13 @@ Let's take a look at the transactions within the ``FabCar`` smart contract.
 Navigate to the ``chaincode/fabcar/javascript/lib`` subdirectory at the root of
 ``fabric-samples`` and open ``fabcar.js`` in your editor.
 
-FabCar 스마트 계약 내 거래를 살펴 보겠습니다. 'fabric-samples' 에서 chaincode/fabcar/javascript/lib 서브 디렉토리로 이동하여 편집기에서 fabcar.js를 여십시오.
+``FabCar 스마트 계약 내 거래를 살펴 보겠습니다. 'fabric-samples' 에서 chaincode/fabcar/javascript/lib 서브 디렉토리로 이동하여 편집기에서 fabcar.js를 여십시오.``
 
 
 
 See how our smart contract is defined using the ``Contract`` class:
 
-Contract 클래스를 사용하여 스마트 계약이 어떻게 정의되는지 확인하십시오.
+``Contract 클래스를 사용하여 스마트 계약이 어떻게 정의되는지 확인하십시오.``
 
 
 
@@ -507,7 +507,7 @@ Within this class structure, you'll see that we have the following
 transactions defined: ``initLedger``, ``queryCar``, ``queryAllCars``,
 ``createCar``, and ``changeCarOwner``. For example:
 
-이 클래스 구조 내에서 initLedger, queryCar, queryAllCars, createCar 및 changeCarOwner 트랜잭션이 정의되어 있음을 알 수 있습니다. 예를 들면 다음과 같습니다.
+``이 클래스 구조 내에서 initLedger, queryCar, queryAllCars, createCar 및 changeCarOwner 트랜잭션이 정의되어 있음을 알 수 있습니다. 예를 들면 다음과 같습니다.``
 
 
 
@@ -520,7 +520,7 @@ transactions defined: ``initLedger``, ``queryCar``, ``queryAllCars``,
 Let's take a closer look at the ``queryAllCars`` transaction to see how it
 interacts with the ledger.
 
-queryAllCars 트랜잭션을 자세히 살펴보고 장부와의 상호 작용 방식을 살펴 보겠습니다.
+``queryAllCars 트랜잭션을 자세히 살펴보고 장부와의 상호 작용 방식을 살펴 보겠습니다.``
 
 
 
@@ -540,7 +540,7 @@ every key has been tagged properly -- will be returned by the query. The
 remainder of the code iterates through the query results and packages them into
 JSON for the application.
 
-이 코드는 queryAllCars가 원장에서 검색 할 자동차 범위를 정의합니다. CAR0과 CAR999 사이의 모든 자동차(모든 키가 올바르게 태그되었다고 가정하면) 1,000 대의 자동차가 쿼리에 의해 반환됩니다. 나머지 코드는 쿼리 결과를 반복하여 애플리케이션의 JSON으로 패키지합니다.
+``이 코드는 queryAllCars가 원장에서 검색 할 자동차 범위를 정의합니다. CAR0과 CAR999 사이의 모든 자동차(모든 키가 올바르게 태그되었다고 가정하면) 1,000 대의 자동차가 쿼리에 의해 반환됩니다. 나머지 코드는 쿼리 결과를 반복하여 애플리케이션의 JSON으로 패키지합니다.``
 
 
 
@@ -550,7 +550,7 @@ as ``getStateByRange`` to interact with the ledger. You can read more about
 these APIs in `detail
 <https://fabric-shim.github.io/master/index.html?redirect=true>`_.
 
-아래는 스마트 계약에서 애플리케이션이 다른 트랜잭션을 호출하는 방법을 나타냅니다. 각 트랜잭션은 getStateByRange와 같은 광범위한 API를 사용하여 원장과 상호 작용합니다. 이러한 API에 대한 자세한 내용을 읽을 수 있습니다.
+``아래는 스마트 계약에서 애플리케이션이 다른 트랜잭션을 호출하는 방법을 나타냅니다. 각 트랜잭션은 getStateByRange와 같은 광범위한 API를 사용하여 원장과 상호 작용합니다. 이러한 API에 대한 자세한 내용을 읽을 수 있습니다.``
 
 
 
@@ -560,7 +560,7 @@ We can see our ``queryAllCars`` transaction, and another called ``createCar``.
 We will use this later in the tutorial to update the ledger, and add a new block
 to the blockchain.
 
-우리는 queryAllCars 거래(트랜잭션)와 createChar 로 불리는 또 다른 거래를 볼 수 있습니다. 튜토리얼 뒷부분에서 이것을 사용하여 원장을 업데이트하고 블록 체인에 새 블록을 추가합니다.
+``우리는 queryAllCars 거래(트랜잭션)와 createChar 로 불리는 또 다른 거래를 볼 수 있습니다. 튜토리얼 뒷부분에서 이것을 사용하여 원장을 업데이트하고 블록 체인에 새 블록을 추가합니다.``
 
 
 
@@ -568,7 +568,7 @@ But first, go back to the ``query`` program and change the
 ``evaluateTransaction`` request to query ``CAR4``. The ``query`` program should
 now look like this:
 
-그러나 먼저 query 프로그램으로 돌아가서 evaluationTransaction 요청을 CAR4 쿼리로 변경하십시오. 쿼리 프로그램은 이제 다음과 같아야합니다.
+``그러나 먼저 query 프로그램으로 돌아가서 evaluationTransaction 요청을 CAR4 쿼리로 변경하십시오. 쿼리 프로그램은 이제 다음과 같아야합니다.``
 
 
 
@@ -579,7 +579,7 @@ now look like this:
 Save the program and navigate back to your ``fabcar/javascript`` directory.
 Now run the ``query`` program again:
 
-프로그램을 저장하고 fabcar/javascript 디렉토리로 다시 이동하십시오. 이제 query 프로그램을 다시 실행하십시오.
+``프로그램을 저장하고 fabcar/javascript 디렉토리로 다시 이동하십시오. 이제 query 프로그램을 다시 실행하십시오.``
 
 
 
@@ -589,7 +589,7 @@ Now run the ``query`` program again:
 
 You should see the following:
 
-다음이 표시되어야합니다.
+``다음이 표시되어야합니다.``
 
 
 
@@ -603,7 +603,7 @@ If you go back and look at the result from when the transaction was
 ``queryAllCars``, you can see that ``CAR4`` was Adriana’s black Tesla model S,
 which is the result that was returned here.
 
-돌아가서 queryAllCars 트랜잭션 결과를 보면 CAR4가 Adriana의 검은색 테슬라 모델 S라는 것을 알 수 있습니다.이 결과는 여기로 반환됩니다.
+``돌아가서 queryAllCars 트랜잭션 결과를 보면 CAR4가 Adriana의 검은색 테슬라 모델 S라는 것을 알 수 있습니다.이 결과는 여기로 반환됩니다.``
 
 
 
@@ -611,20 +611,20 @@ We can use the ``queryCar`` transaction to query against any car, using its
 key (e.g. ``CAR0``) and get whatever make, model, color, and owner correspond to
 that car.
 
-queryCar 트랜잭션을 사용하여 키(예 : CAR0)를 사용하여 모든 자동차에 대해 쿼리하고 해당 자동차에 해당하는 제조사, 모델, 색상 및 소유자를 얻을 수 있습니다.
+``queryCar 트랜잭션을 사용하여 키(예 : CAR0)를 사용하여 모든 자동차에 대해 쿼리하고 해당 자동차에 해당하는 제조사, 모델, 색상 및 소유자를 얻을 수 있습니다.``
 
 
 
 Great. At this point you should be comfortable with the basic query transactions
 in the smart contract and the handful of parameters in the query program.
 
-이 시점에서 스마트 계약의 기본 쿼리 트랜잭션과 쿼리 프로그램의 몇 가지 매개 변수에 익숙해야합니다.
+``이 시점에서 스마트 계약의 기본 쿼리 트랜잭션과 쿼리 프로그램의 몇 가지 매개 변수에 익숙해야합니다.``
 
 
 
 Time to update the ledger...
 
-원장을 업데이트 할 시간…
+``원장을 업데이트 할 시간…``
 
 
 
@@ -635,7 +635,7 @@ Now that we’ve done a few ledger queries and added a bit of code, we’re read
 update the ledger. There are a lot of potential updates we could make, but
 let's start by creating a **new** car.
 
-원장 쿼리를 몇 번 수행하고 약간의 코드를 추가 했으므로 원장을 업데이트 할 준비가되었습니다. 우리가 할 수있는 많은 잠재적 인 업데이트가 있지만 새 차를 만드는 것으로 시작하겠습니다.
+``원장 쿼리를 몇 번 수행하고 약간의 코드를 추가 했으므로 원장을 업데이트 할 준비가되었습니다. 우리가 할 수있는 많은 잠재적 인 업데이트가 있지만 새 차를 만드는 것으로 시작하겠습니다.``
 
 
 
@@ -647,7 +647,7 @@ of **consensus** whereby the different components of the blockchain network work
 together to ensure that every proposed update to the ledger is valid and
 performed in an agreed and consistent order.
 
-응용 프로그램 관점에서 원장을 업데이트하는 것은 간단합니다. 응용 프로그램은 트랜잭션을 블록체인 네트워크에 제출하고, 유효성이 확인되고 커밋되면 응용 프로그램은 트랜잭션이 성공했다는 알림을받습니다. 여기에는 블록 체인 네트워크의 서로 다른 구성 요소가 함께 작동하여 원장에 대한 모든 제안 된 업데이트가 유효하고 합의되고 일관된 순서로 수행되도록하는 합의 과정이 포함됩니다.
+``응용 프로그램 관점에서 원장을 업데이트하는 것은 간단합니다. 응용 프로그램은 트랜잭션을 블록체인 네트워크에 제출하고, 유효성이 확인되고 커밋되면 응용 프로그램은 트랜잭션이 성공했다는 알림을받습니다. 여기에는 블록 체인 네트워크의 서로 다른 구성 요소가 함께 작동하여 원장에 대한 모든 제안 된 업데이트가 유효하고 합의되고 일관된 순서로 수행되도록하는 합의 과정이 포함됩니다.``
 
 
 
@@ -660,7 +660,7 @@ ordering service coordinates transactions for a network; it creates blocks
 containing transactions in a well-defined sequence originating from all the
 different applications connected to the network.
 
-위의 과정을 수행하는 주요 구성 요소를 볼 수 있습니다. 각 원장의 사본과 선택적으로 스마트 계약의 사본을 호스팅하는 여러 피어뿐만 아니라 네트워크에는 주문 서비스도 포함됩니다. 주문 서비스는 네트워크의 거래를 조정합니다. 네트워크에 연결된 모든 다른 응용 프로그램에서 시작하여 잘 정의 된 순서로 트랜잭션을 포함하는 블록을 만듭니다.
+``위의 과정을 수행하는 주요 구성 요소를 볼 수 있습니다. 각 원장의 사본과 선택적으로 스마트 계약의 사본을 호스팅하는 여러 피어뿐만 아니라 네트워크에는 주문 서비스도 포함됩니다. 주문 서비스는 네트워크의 거래를 조정합니다. 네트워크에 연결된 모든 다른 응용 프로그램에서 시작하여 잘 정의 된 순서로 트랜잭션을 포함하는 블록을 만듭니다.``
 
 
 
@@ -669,7 +669,7 @@ called ``invoke.js`` that we will use to make updates to the ledger. Just as wit
 queries, use an editor to open the program and navigate to the code block where
 we construct our transaction and submit it to the network:
 
-원장에 대한 첫 업데이트는 새 차를 만들 것입니다. 원장을 업데이트하는 데 사용할 invoke.js라는 별도의 프로그램이 있습니다. 쿼리와 마찬가지로 편집기를 사용하여 프로그램을 열고 트랜잭션을 구성하고 네트워크에 제출하는 코드 블록으로 이동하십시오.
+``원장에 대한 첫 업데이트는 새 차를 만들 것입니다. 원장을 업데이트하는 데 사용할 invoke.js라는 별도의 프로그램이 있습니다. 쿼리와 마찬가지로 편집기를 사용하여 프로그램을 열고 트랜잭션을 구성하고 네트워크에 제출하는 코드 블록으로 이동하십시오.``
 
 
 
@@ -681,13 +681,13 @@ See how the applications calls the smart contract transaction ``createCar`` to
 create a black Honda Accord with an owner named Tom. We use ``CAR12`` as the
 identifying key here, just to show that we don't need to use sequential keys.
 
-애플리케이션이 스마트계약 트랜잭션 createCar를 호출하여 Tom이라는 소유자와 함께 검은 Honda Accord를 작성하는 방법을 참조하십시오. 여기서는 순차 키를 사용할 필요가 없음을 나타 내기 위해 CAR12를 식별키로 사용합니다.
+``애플리케이션이 스마트계약 트랜잭션 createCar를 호출하여 Tom이라는 소유자와 함께 검은 Honda Accord를 작성하는 방법을 참조하십시오. 여기서는 순차 키를 사용할 필요가 없음을 나타 내기 위해 CAR12를 식별키로 사용합니다.``
 
 
 
 Save it and run the program:
 
-저장하고 프로그램을 실행하십시오.
+``저장하고 프로그램을 실행하십시오.``
 
 
 
@@ -697,7 +697,7 @@ Save it and run the program:
 
 If the invoke is successful, you will see output like this:
 
-호출이 성공하면 다음과 같은 출력이 표시됩니다.
+``호출이 성공하면 다음과 같은 출력이 표시됩니다.``
 
 
 
@@ -710,7 +710,7 @@ If the invoke is successful, you will see output like this:
 Notice how the ``invoke`` application interacted with the blockchain network
 using the ``submitTransaction`` API, rather than ``evaluateTransaction``.
 
-invoke 애플리케이션이 evaluateTransaction API 대신 submitTransaction API를 사용하여 블록 체인 네트워크와 어떻게 상호 작용했는지 확인하십시오.
+``invoke 애플리케이션이 evaluateTransaction API 대신 submitTransaction API를 사용하여 블록 체인 네트워크와 어떻게 상호 작용했는지 확인하십시오.``
 
 
 
@@ -730,7 +730,7 @@ transactions. It then distributes these blocks to every peer in the network,
 where every transaction is validated and committed. Finally, the SDK is
 notified, allowing it to return control to the application.
 
-submitTransaction은 evaluationTransaction보다 훨씬 정교합니다. SDK는 단일 피어와 상호 작용하지 않고 블록체인 네트워크에서 모든 필수 조직의 피어에게 submitTransaction 제안을 보냅니다. 이러한 각 피어는 이 제안을 사용하여 요청된 스마트 계약을 실행하여 서명하고 SDK로 반환하는 트랜잭션 응답을 생성합니다. SDK는 서명된 모든 트랜잭션 응답을 단일 트랜잭션으로 수집한 다음 주문자에게 보냅니다. 주문자는 모든 애플리케이션에서 트랜잭션을 수집하여 트랜잭션 블록으로 시퀀싱합니다. 그런 다음 이 블록을 네트워크의 모든 피어에 배포하여 모든 트랜잭션을 확인하고 커밋합니다. 마지막으로 SDK에 알림이 전달되어 응용 프로그램으로 제어권을 되돌릴 수 있습니다.
+``submitTransaction은 evaluationTransaction보다 훨씬 정교합니다. SDK는 단일 피어와 상호 작용하지 않고 블록체인 네트워크에서 모든 필수 조직의 피어에게 submitTransaction 제안을 보냅니다. 이러한 각 피어는 이 제안을 사용하여 요청된 스마트 계약을 실행하여 서명하고 SDK로 반환하는 트랜잭션 응답을 생성합니다. SDK는 서명된 모든 트랜잭션 응답을 단일 트랜잭션으로 수집한 다음 주문자에게 보냅니다. 주문자는 모든 애플리케이션에서 트랜잭션을 수집하여 트랜잭션 블록으로 시퀀싱합니다. 그런 다음 이 블록을 네트워크의 모든 피어에 배포하여 모든 트랜잭션을 확인하고 커밋합니다. 마지막으로 SDK에 알림이 전달되어 응용 프로그램으로 제어권을 되돌릴 수 있습니다.``
 
 
 
@@ -746,20 +746,20 @@ the application, smart contract, peers and ordering service work together to
 keep the ledger consistent across the network is called consensus, and it is
 explained in detail in this `section <./peers/peers.html>`_.
 
-submitTransaction은 애플리케이션을 위해 이 모든 것을 수행합니다! 애플리케이션, 스마트 계약, 피어 및 ordering 서비스가 함께 작동하여 네트워크에서 원장을 일관되게 유지하는 프로세스를 합의라고하며 이 섹션에서 자세히 설명합니다.
+``submitTransaction은 애플리케이션을 위해 이 모든 것을 수행합니다! 애플리케이션, 스마트 계약, 피어 및 ordering 서비스가 함께 작동하여 네트워크에서 원장을 일관되게 유지하는 프로세스를 합의라고하며 이 섹션에서 자세히 설명합니다.``
 
 
 
 To see that this transaction has been written to the ledger, go back to
 ``query.js`` and change the argument from ``CAR4`` to ``CAR12``.
 
-이 트랜잭션이 원장에 작성되었는지 확인하려면 query.js로 돌아가서 인수를 CAR4에서 CAR12로 변경하십시오.
+``이 트랜잭션이 원장에 작성되었는지 확인하려면 query.js로 돌아가서 인수를 CAR4에서 CAR12로 변경하십시오.``
 
 
 
 In other words, change this:
 
-다시 말해, 이것을 바꾸십시오 :
+``다시 말해, 이것을 바꾸십시오 :``
 
 
 
@@ -769,7 +769,7 @@ In other words, change this:
 
 To this:
 
-이에 :
+``이에 :``
 
 
 
@@ -781,7 +781,7 @@ To this:
 
 Save once again, then query:
 
-다시 한 번 저장 한 후 다음을 쿼리하십시오.
+``다시 한 번 저장 한 후 다음을 쿼리하십시오.``
 
 
 .. code:: bash
@@ -789,6 +789,8 @@ Save once again, then query:
   node query.js
 
 Which should return this:
+
+``어느 것이 이것을 반환해야합니까?``
 
 .. code:: bash
 
@@ -799,14 +801,14 @@ Which should return this:
 Congratulations. You’ve created a car and verified that its recorded on the
 ledger!
 
-축하합니다 자동차를 만들고 장부에 기록 된 것을 확인했습니다!
+``축하합니다 자동차를 만들고 장부에 기록 된 것을 확인했습니다!``
 
 
 
 So now that we’ve done that, let’s say that Tom is feeling generous and he
 wants to give his Honda Accord to someone named Dave.
 
-이제 Tom이  Dave라는 사람에게 Honda Accord를 주고 싶다고 가정 해 봅시다.
+``이제 Tom이  Dave라는 사람에게 Honda Accord를 주고 싶다고 가정 해 봅시다.``
 
 
 
@@ -814,7 +816,7 @@ To do this, go back to ``invoke.js`` and change the smart contract transaction
 from ``createCar`` to ``changeCarOwner`` with a corresponding change in input
 arguments:
 
-이렇게 하려면 invoke.js로 돌아가서 스마트 인수 트랜잭션을 createCar에서 changeCarOwner로 변경하고 입력 인수를 변경하십시오.
+``이렇게 하려면 invoke.js로 돌아가서 스마트 인수 트랜잭션을 createCar에서 changeCarOwner로 변경하고 입력 인수를 변경하십시오.``
 
 
 
@@ -825,13 +827,13 @@ arguments:
 The first argument --- ``CAR12`` --- identifies the car that will be changing
 owners. The second argument --- ``Dave`` --- defines the new owner of the car.
 
-첫 번째 인수인 CAR12는 소유자를 변경할 자동차를 식별합니다. 두 번째 인수인 Dave는 자동차의 새로운 소유자를 정의합니다.
+``첫 번째 인수인 CAR12는 소유자를 변경할 자동차를 식별합니다. 두 번째 인수인 Dave는 자동차의 새로운 소유자를 정의합니다.``
 
 
 
 Save and execute the program again:
 
-프로그램을 저장하고 다시 실행하십시오.
+``프로그램을 저장하고 다시 실행하십시오.``
 
 
 
@@ -842,7 +844,7 @@ Save and execute the program again:
 Now let’s query the ledger again and ensure that Dave is now associated with the
 ``CAR12`` key:
 
-이제 원장을 다시 쿼리하고 Dave가 이제 CAR12 키와 연결되어 있는지 확인하십시오.
+``이제 원장을 다시 쿼리하고 Dave가 이제 CAR12 키와 연결되어 있는지 확인하십시오.``
 
 
 
@@ -852,7 +854,7 @@ Now let’s query the ledger again and ensure that Dave is now associated with t
 
 It should return this result:
 
-다음 결과를 반환해야 합니다.
+``다음 결과를 반환해야 합니다.``
 
 
 
@@ -864,7 +866,7 @@ It should return this result:
 
 The ownership of ``CAR12`` has been changed from Tom to Dave.
 
-다음 결과를 반환해야 합니다.
+``다음 결과를 반환해야 합니다.``
 
 
 
@@ -873,7 +875,7 @@ The ownership of ``CAR12`` has been changed from Tom to Dave.
           create new cars, and only the car owner may transfer the car to
           somebody else.
           
-          실제 애플리케이션에서는 스마트 계약이 접속 제어 논리를 가지고 있을 가능성이 있다. 예를 들어, 허가 받은 특정 사용자만 새 차를 만들 수 있으며, 자동차 소유자만 다른 사람에게 차를 옮길 수 있습니다.
+          ``실제 애플리케이션에서는 스마트 계약이 접속 제어 논리를 가지고 있을 가능성이 있다. 예를 들어, 허가 받은 특정 사용자만 새 차를 만들 수 있으며, 자동차 소유자만 다른 사람에게 차를 옮길 수 있습니다.``
 
 
           
@@ -888,7 +890,7 @@ smart contracts, APIs, and the SDK play in queries and updates and you should
 have a feel for how different kinds of applications could be used to perform
 other business tasks and operations.
 
-이제 몇 가지 쿼리 및 몇 가지 업데이트를 수행했으므로, 당신은 애플리케이션이 스마트 계약을 사용하여 블록체인 네트워크와 어떻게 상호 작용하는지 상당히 잘 알고 있어야 합니다. 스마트 계약, API 및 SDK가 쿼리 및 업데이트에서 수행하는 역할의 기본을 살펴보았으며, 다른 종류의 애플리케이션이 다른 비즈니스 작업 및 운영을 수행하는 데 어떻게 사용될 수 있는지에 대한 느낌이 있어야 합니다.
+``이제 몇 가지 쿼리 및 몇 가지 업데이트를 수행했으므로, 당신은 애플리케이션이 스마트 계약을 사용하여 블록체인 네트워크와 어떻게 상호 작용하는지 상당히 잘 알고 있어야 합니다. 스마트 계약, API 및 SDK가 쿼리 및 업데이트에서 수행하는 역할의 기본을 살펴보았으며, 다른 종류의 애플리케이션이 다른 비즈니스 작업 및 운영을 수행하는 데 어떻게 사용될 수 있는지에 대한 느낌이 있어야 합니다.``
 
 
 
@@ -901,7 +903,7 @@ smart contracts, process and data design, a tutorial using a more in-depth
 Commercial Paper `tutorial <./tutorial/commercial_paper.html>`_ and a large
 amount of other material relating to the development of applications.
 
-서론에서 말했듯이, 우리는 스마트 계약, 프로세스 및 데이터 설계에 대한 심층적인 정보, (보다 심층적인 Commercial Paper) 튜토리얼 및 (애플리케이션 개발과 관련된 많은 양의 기타 자료를 포함하는) 애플리케이션 개발에 관한 전체 섹션이 있습니다.
+``서론에서 말했듯이, 우리는 스마트 계약, 프로세스 및 데이터 설계에 대한 심층적인 정보, (보다 심층적인 Commercial Paper) 튜토리얼 및 (애플리케이션 개발과 관련된 많은 양의 기타 자료를 포함하는) 애플리케이션 개발에 관한 전체 섹션이 있습니다.``
 
 
 
