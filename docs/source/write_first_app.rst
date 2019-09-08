@@ -24,7 +24,7 @@ application and smart contract to query and update a ledger, and how to use a
 Certificate Authority to generate the X.509 certificates used by applications
 which interact with a permissioned blockchain.
 
-이 튜토리얼에서는 패브릭 앱이 어떻게 작동하는지 보기 위해 몇 개의 샘플 프로그램을 살펴 보겠습니다. 이러한 애플리케이션과 이들이 사용하는 스마트 계약은 일반적으로 FabCar라고 합니다. 그들은 Hyperledger Fabric 블록체인을 이해하기 위한 훌륭한 출발점을 제공합니다. 원장을 쿼리하고 업데이트하기 위해 응용 프로그램 및 스마트 계약을 작성하는 방법과 인증 기관을 사용하여 권한이 부여 된 블록 체인과 상호 작용하는 응용 프로그램에서 사용하는 X.509 인증서를 생성하는 방법에 대해 알아 봅니다.
+''이 튜토리얼에서는 패브릭 앱이 어떻게 작동하는지 보기 위해 몇 개의 샘플 프로그램을 살펴 보겠습니다. 이러한 애플리케이션과 이들이 사용하는 스마트 계약은 일반적으로 FabCar라고 합니다. 그들은 Hyperledger Fabric 블록체인을 이해하기 위한 훌륭한 출발점을 제공합니다. 원장을 쿼리하고 업데이트하기 위해 응용 프로그램 및 스마트 계약을 작성하는 방법과 인증 기관을 사용하여 권한이 부여 된 블록 체인과 상호 작용하는 응용 프로그램에서 사용하는 X.509 인증서를 생성하는 방법에 대해 알아 봅니다.''
 
 
 
@@ -33,13 +33,13 @@ We will use the application SDK --- described in detail in the
 queries and updates the ledger using the smart contract SDK --- described in
 detail in section :doc:`/developapps/smartcontract`.
 
-우리는 애플리케이션 SDK를 사용하겠습니다(Application topic에 자세히 설명되어 있음). 스마트 계약 SDK를 사용하여 원장을 쿼리하고 업데이트하는 스마트 계약을 호출합니다(Smart Contract Processing 섹션에서 자세히 설명되어 있음). 
+''우리는 애플리케이션 SDK를 사용하겠습니다(Application topic에 자세히 설명되어 있음). 스마트 계약 SDK를 사용하여 원장을 쿼리하고 업데이트하는 스마트 계약을 호출합니다(Smart Contract Processing 섹션에서 자세히 설명되어 있음). ''
 
 
 
 We’ll go through three principle steps:
 
-다음 세 가지 기본 단계를 거칩니다.
+''다음 세 가지 기본 단계를 거칩니다.''
 
 
 
@@ -47,7 +47,7 @@ We’ll go through three principle steps:
   to interact with, so we'll get a basic network our smart contracts and
   application will use.
   
-  개발 환경 설정. 우리의 어플리케이션은 상호작용 할 네트워크가 필요하므로 스마트 계약과 응용 프로그램에서 사용할 기본 네트워크를 얻게 됩니다.
+  ''개발 환경 설정. 우리의 어플리케이션은 상호작용 할 네트워크가 필요하므로 스마트 계약과 응용 프로그램에서 사용할 기본 네트워크를 얻게 됩니다.''
 
   .. image:: images/AppConceptsOverview.png
 
@@ -55,14 +55,14 @@ We’ll go through three principle steps:
   We’ll inspect the smart contract to learn about the transactions within them,
   and how they are used by applications to query and update the ledger.
   
-  스마트 계약 샘플(FabCar)에 대해 학습합니다. 우리는 JavaScript로 작성된 현명한 계약을 사용합니다. 스마트 계약을 검사하여 거래 내에서의 거래와 응용 프로그램에서 원장을 쿼리하고 업데이트하는 데 사용되는 방법에 대해 알아 봅니다.
+  ''스마트 계약 샘플(FabCar)에 대해 학습합니다. 우리는 JavaScript로 작성된 현명한 계약을 사용합니다. 스마트 계약을 검사하여 거래 내에서의 거래와 응용 프로그램에서 원장을 쿼리하고 업데이트하는 데 사용되는 방법에 대해 알아 봅니다.''
 
   **3. Develop a sample application which uses FabCar.** Our application will
   use the FabCar smart contract to query and update car assets on the ledger.
   We'll get into the code of the apps and the transactions they create,
   including querying a car, querying a range of cars, and creating a new car.
   
-  FabCar를 사용하는 샘플 어플리케이션을 개발 하십시오. 우리의 애플리케이션은 FabCar 스마트 계약을 사용하여 원장의 자동차 자산을 조회하고 업데이트 합니다. 우리는 자동차 쿼리, 다양한 자동차 쿼리 및 새 자동차 만들기를 포함하여 앱의 코드와 앱이 생성하는 트랜잭션에 대해 알아 봅니다.
+  ''FabCar를 사용하는 샘플 어플리케이션을 개발 하십시오. 우리의 애플리케이션은 FabCar 스마트 계약을 사용하여 원장의 자동차 자산을 조회하고 업데이트 합니다. 우리는 자동차 쿼리, 다양한 자동차 쿼리 및 새 자동차 만들기를 포함하여 앱의 코드와 앱이 생성하는 트랜잭션에 대해 알아 봅니다.''
 
 
 
@@ -70,7 +70,7 @@ After completing this tutorial you should have a basic understanding of how an
 application is programmed in conjunction with a smart contract to interact with
 the ledger hosted and replicated on the peers in a Fabric network.
 
-이 튜토리얼을 완료한 후, 패브릭 네트워크의 피어에서 호스팅 되고 복제된 원장과 상호 작용하기 위해 스마트 계약과 함께 응용 프로그램을 프로그래밍 하는 방법에 대한 기본 지식을 이해해야 합니다.
+''이 튜토리얼을 완료한 후, 패브릭 네트워크의 피어에서 호스팅 되고 복제된 원장과 상호 작용하기 위해 스마트 계약과 함께 응용 프로그램을 프로그래밍 하는 방법에 대한 기본 지식을 이해해야 합니다.''
 
 
 
@@ -78,7 +78,7 @@ the ledger hosted and replicated on the peers in a Fabric network.
           and :doc:`private-data/private-data`, though we won't explicitly show
           how to use our apps to leverage those features.
           
-          이러한 응용 프로그램은 'Service Discovery' 및 'Private data' 와도 호환되지만 앱을 사용하여 이러한 기능을 활용하는 방법을 명시적으로 보여주지는 않습니다.
+          ''이러한 응용 프로그램은 'Service Discovery' 및 'Private data' 와도 호환되지만 앱을 사용하여 이러한 기능을 활용하는 방법을 명시적으로 보여주지는 않습니다.''
 
 
 
@@ -88,7 +88,7 @@ Set up the blockchain network
 .. note:: This next section requires you to be in the ``first-network``
           subdirectory within your local clone of the ``fabric-samples`` repo.
           
-          다음 섹션에서는 'fabric-samples' 리포지토리의 로컬 복사본 내 'first-network' 하위 디렉토리에 있어야 합니다.
+          ''다음 섹션에서는 'fabric-samples' 리포지토리의 로컬 복사본 내 'first-network' 하위 디렉토리에 있어야 합니다.''
 
 
 
@@ -96,7 +96,7 @@ If you've already run through :doc:`build_network`, you will have downloaded
 ``fabric-samples`` and have a network up and running. Before you run this
 tutorial, you must stop this network:
 
-이미 'Building Your First Network' 구축을 진행 한 경우 'fabric-samples' 을 다운로드하고 네트워크를 가동 할 수 있습니다. 이 학습서를 실행하기 전에이 네트워크를 중지해야합니다.
+''이미 'Building Your First Network' 구축을 진행 한 경우 'fabric-samples' 을 다운로드하고 네트워크를 가동 할 수 있습니다. 이 학습서를 실행하기 전에이 네트워크를 중지해야합니다.''
 
 
 
