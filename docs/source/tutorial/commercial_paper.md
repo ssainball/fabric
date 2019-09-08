@@ -1294,7 +1294,7 @@ Feel free to examine other files in the `application` directory to understand
 how the application works, and read in detail how `buy.js` is implemented in
 the application [topic](../developapps/application.html).
 
-애플리케이션 디렉토리의 다른 파일을 검토하여 애플리케이션의 작동 방식을 이해하고 애플리케이션 주제에서 buy.js가 구현 된 방법을 자세히 읽으십시오.
+``애플리케이션 디렉토리의 다른 파일을 검토하여 애플리케이션의 작동 방식을 이해하고 애플리케이션 주제에서 buy.js가 구현 된 방법을 자세히 읽으십시오.``
 
 
 ## Run as DigiBank
@@ -1304,17 +1304,17 @@ similar structure to MagnetoCorp's issue application. Therefore, let’s install
 their dependencies and set up Balaji's wallet so that he can use these
 applications to buy and redeem commercial paper.
 
-commercial paper를 구매하고 사용하는 DigiBank 응용 프로그램은 MagnetoCorp의 발행 응용 프로그램과 매우 유사한 구조를 가지고 있습니다. 따라서 의존성을 설치하고 Balaji의 지갑을 설정하여 이러한 응용 프로그램을 사용하여 commercial paper 를 구입하고 사용할 수 있도록하겠습니다.
+``commercial paper를 구매하고 사용하는 DigiBank 응용 프로그램은 MagnetoCorp의 발행 응용 프로그램과 매우 유사한 구조를 가지고 있습니다. 따라서 의존성을 설치하고 Balaji의 지갑을 설정하여 이러한 응용 프로그램을 사용하여 commercial paper 를 구입하고 사용할 수 있도록하겠습니다.``
 
 Like MagnetoCorp, Digibank must the install the required application packages
 using the `npm install` command, and again, this make take a short time to
 complete.
 
-MagnetoCorp와 마찬가지로 Digibank는 npm install 명령을 사용하여 필요한 응용 프로그램 패키지를 설치해야하며,이 과정을 완료하는 데 약간의 시간이 걸립니다.
+``MagnetoCorp와 마찬가지로 Digibank는 npm install 명령을 사용하여 필요한 응용 프로그램 패키지를 설치해야하며,이 과정을 완료하는 데 약간의 시간이 걸립니다.``
 
 In the DigiBank administrator window, install the application dependencies:
 
-DigiBank 관리자 창에서 애플리케이션 종속성을 설치하십시오.
+``DigiBank 관리자 창에서 애플리케이션 종속성을 설치하십시오.``
 
 ```
 (digibank admin)$ cd commercial-paper/organization/digibank/application/
@@ -1328,7 +1328,7 @@ added 738 packages in 46.701s
 In Balaji's terminal window, run the `addToWallet.js` program to add identity
 information to his wallet:
 
-Balaji의 터미널 창에서 addToWallet.js 프로그램을 실행하여 지갑에 신원 정보를 추가하십시오.
+``Balaji의 터미널 창에서 addToWallet.js 프로그램을 실행하여 지갑에 신원 정보를 추가하십시오.``
 
 ```
 (balaji)$ node addToWallet.js
@@ -1340,14 +1340,14 @@ The `addToWallet.js` program has added identity information for `balaji`, to his
 wallet, which will be used by `buy.js` and `redeem.js` to submit transactions to
 `PaperNet`.
 
-addToWallet.js 프로그램은 balaji의 신원 정보를 지갑에 추가했으며, 이는 buy.js와 redeem.js가 PaperNet에 거래를 제출하는 데 사용됩니다.
+``addToWallet.js 프로그램은 balaji의 신원 정보를 지갑에 추가했으며, 이는 buy.js와 redeem.js가 PaperNet에 거래를 제출하는 데 사용됩니다.``
 
 Like Isabella, Balaji can store multiple identities in his wallet, though in our
 example, he only uses one -- `Admin@org.example.com`. His corresponding wallet
 structure `digibank/identity/user/balaji/wallet/Admin@org1.example.com`
 contains is very similar Isabella's -- feel free to examine it.
 
-이사벨라와 마찬가지로 Balaji는 지갑에 여러 ID를 저장할 수 있지만이 예에서는 Admin@org.example.com 중 하나만 사용합니다. 그의 해당 지갑 구조 digibank/identity/user/balaji/wallet/Admin@org1.example.com에 포함 된 Isabella는 매우 유사합니다. 자유롭게 검토하십시오.
+``이사벨라와 마찬가지로 Balaji는 지갑에 여러 ID를 저장할 수 있지만이 예에서는 Admin@org.example.com 중 하나만 사용합니다. 그의 해당 지갑 구조 digibank/identity/user/balaji/wallet/Admin@org1.example.com에 포함 된 Isabella는 매우 유사합니다. 자유롭게 검토하십시오.``
 
 
 
@@ -1356,11 +1356,11 @@ contains is very similar Isabella's -- feel free to examine it.
 Balaji can now use `buy.js` to submit a transaction that will transfer ownership
 of MagnetoCorp commercial paper `00001` to DigiBank.
 
-Balaji는 이제 buy.js를 사용하여 MagnetoCorp commercial paper 00001의 소유권을 DigiBank로 이전하는 거래를 제출할 수 있습니다.
+``Balaji는 이제 buy.js를 사용하여 MagnetoCorp commercial paper 00001의 소유권을 DigiBank로 이전하는 거래를 제출할 수 있습니다.``
 
 Run the `buy` application in Balaji's window:
 
-Balaji의 창에서 구매 애플리케이션을 실행하십시오.
+``Balaji의 창에서 구매 애플리케이션을 실행하십시오.``
 
 ```
 (balaji)$ node buy.js
@@ -1383,7 +1383,7 @@ commercial paper `00001` within the world state using the `putState()` and
 `getState()` Fabric APIs. As you've seen, the application logic to buy and issue
 commercial paper is very similar, as is the smart contract logic.
 
-Balaji가 DigiBank를 대신하여 MagnetoCorp commercial paper 00001을 성공적으로 구매 한 프로그램 출력을 볼 수 있습니다. buy.js는 putState() 및 getState() Fabric API를 사용하여 전 세계의 commercial paper 00001을 업데이트 한 CommercialPaper 스마트 계약에 정의 된 구매 트랜잭션을 호출했습니다. 보시다시피, commercial paper를 사고 발행하는 애플리케이션 로직은 스마트 계약 로직과 매우 유사합니다.
+``Balaji가 DigiBank를 대신하여 MagnetoCorp commercial paper 00001을 성공적으로 구매 한 프로그램 출력을 볼 수 있습니다. buy.js는 putState() 및 getState() Fabric API를 사용하여 전 세계의 commercial paper 00001을 업데이트 한 CommercialPaper 스마트 계약에 정의 된 구매 트랜잭션을 호출했습니다. 보시다시피, commercial paper를 사고 발행하는 애플리케이션 로직은 스마트 계약 로직과 매우 유사합니다.``
 
 
 ## Redeem application
@@ -1392,11 +1392,11 @@ The final transaction in the lifecycle of commercial paper `00001` is for
 DigiBank to redeem it with MagnetoCorp. Balaji uses `redeem.js` to submit a
 transaction to perform the redeem logic within the smart contract.
 
-commercial paper 00001 수명주기의 최종 거래는 DigiBank가 MagnetoCorp로 이를 사용하는 것입니다. Balaji는 redeem.js를 사용하여 스마트 계약 내에서 교환 논리를 수행하기 위해 트랜잭션을 제출합니다.
+``commercial paper 00001 수명주기의 최종 거래는 DigiBank가 MagnetoCorp로 이를 사용하는 것입니다. Balaji는 redeem.js를 사용하여 스마트 계약 내에서 교환 논리를 수행하기 위해 트랜잭션을 제출합니다.``
 
 Run the `redeem` transaction in Balaji's window:
 
-Balaji의 창에서 상환 거래를 실행하십시오.
+``Balaji의 창에서 상환 거래를 실행하십시오.``
 
 ```
 (balaji)$ node redeem.js
@@ -1417,7 +1417,7 @@ Again, see how the commercial paper 00001 was successfully redeemed when
 Again, it updated commercial paper `00001` within the world state to reflect
 that the ownership returned to MagnetoCorp, the issuer of the paper.
 
-redeem.js가 CommercialPaper에 정의 된 상환 거래를 호출했을 때 상용 용지 00001이 어떻게 사용되었는지 다시 확인하십시오. 다시, 소유권이 논문 발행자 인 MagnetoCorp로 반환되었음을 반영하기 위해 WORLD STATE 내에서 상용 용지 00001을 업데이트했습니다.
+``redeem.js가 CommercialPaper에 정의 된 상환 거래를 호출했을 때 상용 용지 00001이 어떻게 사용되었는지 다시 확인하십시오. 다시, 소유권이 논문 발행자 인 MagnetoCorp로 반환되었음을 반영하기 위해 WORLD STATE 내에서 상용 용지 00001을 업데이트했습니다.``
 
 
 
@@ -1431,9 +1431,9 @@ topic will give you a fuller explanation of the commercial paper scenario, the
 `PaperNet` business network, its actors, and how the applications and smart
 contracts they use work in detail.
 
-이 학습서에 표시된 애플리케이션 및 스마트 계약이 어떻게 작동하는지 이해하려면 애플리케이션 개발을 읽는 것이 도움이됩니다. 이 주제에서는 commercial paper 시나리오, PaperNet 비즈니스 네트워크, 해당 행위자 및 이들이 사용하는 응용 프로그램 및 스마트 계약에 대한 자세한 설명을 제공합니다.
+``이 학습서에 표시된 애플리케이션 및 스마트 계약이 어떻게 작동하는지 이해하려면 애플리케이션 개발을 읽는 것이 도움이됩니다. 이 주제에서는 commercial paper 시나리오, PaperNet 비즈니스 네트워크, 해당 행위자 및 이들이 사용하는 응용 프로그램 및 스마트 계약에 대한 자세한 설명을 제공합니다.``
 
-또한 이 샘플을 사용하여 자체 애플리케이션 및 스마트 계약 작성을 시작하십시오!
+``또한 이 샘플을 사용하여 자체 애플리케이션 및 스마트 계약 작성을 시작하십시오!``
 
 <!--- Licensed under Creative Commons Attribution 4.0 International License
 https://creativecommons.org/licenses/by/4.0/ -->
