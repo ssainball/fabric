@@ -189,10 +189,10 @@ command:
 	  npm install --global windows-build-tools
 
 See the `NPM windows-build-tools page
-
-``자세한 내용은 NPM windows-build-tools 페이지를 참조하십시오.``
 <https://www.npmjs.com/package/windows-build-tools>`__ for more
 details.
+
+``자세한 내용은 NPM windows-build-tools 페이지를 참조하십시오.``
 
 Once this is done, you should also install the NPM GRPC module with the
 following command:
